@@ -139,9 +139,61 @@ parseInt(1111,2) 	// 15
 +(45).toString(2)	//101101
 
 ### 13 Какие методы есть в Promis
+В классе Promise есть 5 статических методов.
+
+	Promise.all(promises) – ожидает выполнения всех промисов и возвращает массив с результатами. Если любой из указанных промисов вернёт ошибку, то результатом работы Promise.all будет эта ошибка, результаты остальных промисов будут игнорироваться.
+	Promise.allSettled(promises) (добавлен недавно) – ждёт, пока все промисы завершатся и возвращает их результаты в виде массива с объектами, у каждого объекта два свойства:
+state: "fulfilled", если выполнен успешно или "rejected", если ошибка,
+value – результат, если успешно или reason – ошибка, если нет.
+	Promise.race(promises) – ожидает первый выполненный промис, который становится его результатом, остальные игнорируются.
+	Promise.resolve(value) – возвращает успешно выполнившийся промис с результатом value.
+	Promise.reject(error) – возвращает промис с ошибкой error.
+
+Promise.all([
+  new Promise((resolve, reject) => setTimeout(() => resolve(1), 1000)),
+  new Promise((resolve, reject) => setTimeout(() => reject(new Error("Ошибка!")), 2000)),
+  new Promise((resolve, reject) => setTimeout(() => resolve(3), 3000))
+]).catch(alert); // Error: Ошибка!
+
+let requests = names.map(name => fetch(`https://api.github.com/users/${name}`));
+
+Promise.all(requests)
+  .then(responses => {
+    // все промисы успешно завершены
+    for(let response of responses) {
+      alert(`${response.url}: ${response.status}`); // покажет 200 для каждой ссылки
+    }
+
+    return responses;
+  })
+  // преобразовать массив ответов response в response.json(),
+  // чтобы прочитать содержимое каждого
+  .then(responses => Promise.all(responses.map(r => r.json())))
+  // все JSON-ответы обработаны, users - массив с результатами
+  .then(users => users.forEach(user => alert(user.name)));
+  
 
 ### 14 Каррирование функций 
 Каррирование – это трансформация функций таким образом, чтобы они принимали аргументы не как f(a, b, c), а как f(a)(b)(c).
 
 ### Наследование прототипное, обектное и функциональное 
+Прототипное Свойство __proto__ — исторически обусловленный геттер/сеттер для [[Prototype]]
+Когда мы хотим прочитать свойство из object, а оно отсутствует, JavaScript автоматически берет его из прототипа. В программировании такой механизм называется «прототипным наследованием».
+
+let animal = {
+  eats: true,
+  walk() {
+    /* этот метод не будет использоваться в rabbit */
+  }
+};
+
+let rabbit = {
+  __proto__: animal
+};
+
+rabbit.walk = function() {
+  alert("Rabbit! Bounce-bounce!");
+};
+
+rabbit.walk(); // Rabbit! Bounce-bounce!
 
