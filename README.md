@@ -1,5 +1,12 @@
 # job_interview_tasks
-    
+
+## Задания git
+https://github.com/Synkevych/job_interview_tasks/blob/master/git.md
+
+## Задания JavaScript ES2015/ES2016/ES2017
+https://github.com/Synkevych/job_interview_tasks/blob/master/JavaScript.md
+
+## Задания общие
 ### 3 Чем отличаются симетричное и асиметричное шифрование
 Метод Симетричного шифрування 
 передбачає використання одного і того ж ключа що зберігається у секреті для зашифрування та розшифрування даних 
@@ -30,97 +37,6 @@
 Быстрая сортировка
 Швидке сортування полягає в тому, що множина елементів В { k1, k2, …, kn } перетворюється на множину B1, {k1}, B2, де В1 - підмножина В з елементами, не більшими за k1, а В2 - підмножина В з елементами більшими k1. Причому елемент k1 після розбиття множини В буде перебувати на потрібному місці. Далі до множин B1 і B2 знову застосовують впорядкування швидким сортуванням.
 
-### 5 Как взять от 7.32 дробную часть?
-double.toString().split(".") // ["4", "234"]
-
-let double = 7.32 
-~~double; 		// 7 двойное НЕ (~)
-double ^ 0 		// 7 Исключающее ИЛИ (^) с нулём
-double.toFixed()	// "7"
-double.toPrecision(1)	// "7"
-Math.round(double)
-
-### 6 Как с помощью чистой функции добавить к state новый массив
-
-let arr = [1,2,3];
-let newArr = [4,5];
-
-Способ 1:
-
-const addEndOfMass = (state = {}, action ) => {
-  return { Object.asing({}, ...state, newArr)}
-  }
-  
-### 7 Найболее сложное задание? 
-
-Правильно давать имена переменным и функциям. 
-
-### 8 Почему console.log("string".length)  возвращает число ?
-str.length — это числовое свойство не функция
-Содержимое строки в JavaScript нельзя изменить. 
-Имеет методы Методы toLowerCase() и toUpperCase()  str.trim() — убирает пробелы в начале и конце строки.
-str.repeat(n)
-
-### 9 Как функция изменит переменные  / Что вернет console.log(obj, num) 
-
-let obj = { }; 
-let num;
-
-function changeItem(obj, num){
-          obj.name = "Roman";
-          num = 10;
-}
-console.log(obj, num) // {name: "Roman"} undefined
-
-Сдесь сработает замыкание, если функцию не передавть параметром то она сработает так как и ожидалось 
-
-### 10 Как поведет себя функция ?
-Более подробно – [https://habr.com/ru/company/ruvds/blog/340194/]
-
-let i = 0;
-
-for (i; i < 10; i++) {
-	setTimeout( () => 
-	console.log(i), 100)
-}
-// (10) 10 
-чтобы вывести числа от 0 - 9
-– – – – – – – – – – – – – – – – – – 
-Поведение изменится если использовать let позволяет создавать новую привязку при каждом вызове функции
-
-for (let i = 0; i < 10; i++) {
-	setTimeout( () => 
-	console.log(i), 100)
-}
-– – – – – – – – – – – – – – – – – – 
-Явно паредать параметр во внутреннюю функцию
-
-for (var i = 0; i < 10; i++) {
-	setTimeout(
-		function(i) {
-			return function() {
-				console.log(i);
-			};
-		}(i),
-		100 ); }
-– – – – – – – – – – – – – – – – – – 
-Похожая задача только с использованием массива 
-
-const arr = [10, 12, 15, 21];
-for (const [i, item] of arr.entries()) {
-    setTimeout(console.log, 0, `Index: ${i}, element: ${item}`);
-}
-
-### 11 Какую роль играют { } [Curly brackets or braces]
-funtion foo(){
-let i = 10;
-let b = {}:
-	{ i += 5;
-	  b.name = "Bohdan";
-	}
-	console.log(i, b) 
-Только декоративную, никак не влияют на код
-
 ### 12 Сколько информации можно записать в 1 байт / 8 бит 
 
 8 бит = 2^8-1 = 255 
@@ -130,63 +46,4 @@ parseInt(1111,2) 	// 15
 Обратный перевод 
 +parseInt(15).toString(2)	//1111 
 +(45).toString(2)	//101101
-
-### 13 Какие методы есть в Promis
-В классе Promise есть 5 статических методов.
-
-	Promise.all(promises) – ожидает выполнения всех промисов и возвращает массив с результатами. Если любой из указанных промисов вернёт ошибку, то результатом работы Promise.all будет эта ошибка, результаты остальных промисов будут игнорироваться.
-	Promise.allSettled(promises) (добавлен недавно) – ждёт, пока все промисы завершатся и возвращает их результаты в виде массива с объектами, у каждого объекта два свойства:
-state: "fulfilled", если выполнен успешно или "rejected", если ошибка,
-value – результат, если успешно или reason – ошибка, если нет.
-	Promise.race(promises) – ожидает первый выполненный промис, который становится его результатом, остальные игнорируются.
-	Promise.resolve(value) – возвращает успешно выполнившийся промис с результатом value.
-	Promise.reject(error) – возвращает промис с ошибкой error.
-
-Promise.all([
-  new Promise((resolve, reject) => setTimeout(() => resolve(1), 1000)),
-  new Promise((resolve, reject) => setTimeout(() => reject(new Error("Ошибка!")), 2000)),
-  new Promise((resolve, reject) => setTimeout(() => resolve(3), 3000))
-]).catch(alert); // Error: Ошибка!
-
-let requests = names.map(name => fetch(`https://api.github.com/users/${name}`));
-
-Promise.all(requests)
-  .then(responses => {
-    // все промисы успешно завершены
-    for(let response of responses) {
-      alert(`${response.url}: ${response.status}`); // покажет 200 для каждой ссылки
-    }
-
-    return responses;
-  })
-  // преобразовать массив ответов response в response.json(),
-  // чтобы прочитать содержимое каждого
-  .then(responses => Promise.all(responses.map(r => r.json())))
-  // все JSON-ответы обработаны, users - массив с результатами
-  .then(users => users.forEach(user => alert(user.name)));
-  
-
-### 14 Каррирование функций 
-Каррирование – это трансформация функций таким образом, чтобы они принимали аргументы не как f(a, b, c), а как f(a)(b)(c).
-
-### Наследование прототипное, обектное и функциональное 
-Прототипное Свойство __proto__ — исторически обусловленный геттер/сеттер для [[Prototype]]
-Когда мы хотим прочитать свойство из object, а оно отсутствует, JavaScript автоматически берет его из прототипа. В программировании такой механизм называется «прототипным наследованием».
-
-let animal = {
-  eats: true,
-  walk() {
-    /* этот метод не будет использоваться в rabbit */
-  }
-};
-
-let rabbit = {
-  __proto__: animal
-};
-
-rabbit.walk = function() {
-  alert("Rabbit! Bounce-bounce!");
-};
-
-rabbit.walk(); // Rabbit! Bounce-bounce!
 
