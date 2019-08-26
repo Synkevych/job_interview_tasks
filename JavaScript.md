@@ -39,7 +39,7 @@ str.length — это числовое свойство не функция
 Имеет методы Методы toLowerCase() и toUpperCase()  str.trim() — убирает пробелы в начале и конце строки.
 str.repeat(n)
 
-### 5. Как функция изменит переменные  / Что вернет console.log(obj, num) 
+### 5. Как функция изменит переменные || Что вернет console.log(obj, num) 
 ```javascript
 	let obj = { };
 	let num;
@@ -48,12 +48,22 @@ str.repeat(n)
 		obj.name = "Roman";
 		num = 10;
 	}
-	
-	console.log(obj, num) // {name: "Roman"} undefined
+	changeItem(obj,num);
+	console.log(obj, num) 	// { name: 'Roman' } undefined
 ```
 
-Сдесь сработает замыкание, если функцию не передавть параметром то она сработает так как и ожидалось 
-
+Сдесь сработает замыкание, если функции не передавть параметры то она сработает так как и ожидалось 
+```javascript
+	let obj = { };
+	let num;
+	
+	function changeItem(){
+		obj.name = "Roman";
+		num = 10;
+	}
+	 changeItem();
+	console.log(obj, num)	// { name: 'Roman' } 10
+```
 ### 6. Как поведет себя функция ?
 Более подробно – [https://habr.com/ru/company/ruvds/blog/340194/]
 ```javascript
