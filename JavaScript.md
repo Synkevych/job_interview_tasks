@@ -108,7 +108,6 @@ for (const [i, item] of arr.entries()) {
 
 ### 7. Какую роль играют { } [Curly brackets or braces]
 ```javascript
-funtion foo(){
 let i = 10;
 let b = {}:
 	{ i += 5;
