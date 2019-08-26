@@ -30,9 +30,9 @@ const addEndOfMass = (state = {}, action ) => {
 ### 4. Почему console.log("string".length)  возвращает число ?
 Разница между  
 ```javascript
-	let str1 = new String("string");
+	let str1 = new String("string"); // typeof str1 === object
 	// &
-	let str2 = "string";
+	let str2 = "string"; // typeof str1 === string
 ```
 str.length — это числовое свойство не функция
 Содержимое строки в JavaScript нельзя изменить. 
