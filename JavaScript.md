@@ -1,4 +1,42 @@
-### 1. Как взять от 7.32 дробную часть?
+### 1. Принципиальная разница между var & let
+```javascript
+for(var i = 0; i < 10; i++){ // code }
+console.log(i) // i = 10 
+
+for(let i = 0; i < 10; i++){ // code }
+console.log(i) // i = 10  // ReferenceError: i is not defined
+```
+
+Переменная объявленая через let видна только в рамках блока {...}.
+Через var видна визде в функции. 
+Это влияет на объявления внутри if, while, for;
+
+Используя var можно переобъявить переменную, ошибки не будет.
+```javascript 
+var s = 10;
+var s = 11; // s = 10
+```
+Используя let - SyntaxError 's' has already been declared
+
+Переменная объявленая через var существуют до объявления.
+console.log(a); // undefined 
+var a = 0;
+
+### 2. Какие параметры есть в Promise
+У объекта promise возвращаемого конструктором new Promise, есть внутренние свойства, к которым нет прямого доступа:
+- state ("состояние") – вначале "pending"( ожидание ), потом меняется на "fulfilled" (выполнено успешно) при  вызове resolve или на "rejected" выполненео с ошибкой при вызове "reject"; 
+- result ("результат") – вначале undefined, далее меняется на value при вызове resolve(value) или на error при вызове reject(error).
+синтаксис: 
+```javascript
+let promise = new Promise(function(resolve, reject) {
+  // эта функция выполнится автоматически, при вызове new Promise
+
+  // через 1 секунду сигнализировать, что задача выполнена с результатом "done"
+  setTimeout(() => resolve("done"), 1000);
+});
+```
+
+### 3. Как взять от 7.32 дробную часть?
 Например на серевер нужно отправить число частями.
 ```javascript
 let double = 7.32
@@ -14,7 +52,7 @@ double.toPrecision(1)	// "7"
 Math.round(double)
 ```
     
-### 2. Как с помощью чистой функции добавить к state новый массив
+### 4. Как с помощью чистой функции добавить к state новый массив
 
 ```javascript
 let arr = [1,2,3];
@@ -23,11 +61,11 @@ const addEndOfMass = (state = {}, action ) => {
 	return { Object.asing({}, ...state, newArr)}
 }
 ```
-### 3. Найболее сложное задание? 
+### 5. Найболее сложное задание? 
 
 Правильно давать имена переменным и функциям. 
 
-### 4. Почему console.log("string".length)  возвращает число ?
+### 6. Почему console.log("string".length)  возвращает число ?
 Разница между  
 ```javascript
 	let str1 = new String("string"); // typeof str1 === object
@@ -39,7 +77,7 @@ str.length — это числовое свойство не функция
 Имеет методы Методы toLowerCase() и toUpperCase()  str.trim() — убирает пробелы в начале и конце строки.
 str.repeat(n)
 
-### 5. Как функция изменит переменные || Что вернет console.log(obj, num) 
+### 7. Как функция изменит переменные || Что вернет console.log(obj, num) 
 ```javascript
 	let obj = { };
 	let num;
@@ -64,30 +102,43 @@ str.repeat(n)
 	 changeItem();
 	console.log(obj, num)	// { name: 'Roman' } 10
 ```
-### 6. Как поведет себя функция ?
+### 8. Как поведет себя функция ?
 Более подробно – [https://habr.com/ru/company/ruvds/blog/340194/]
 ```javascript
 	let i = 0;
 
 	for (i; i < 10; i++) {
 		setTimeout( () => 
-		console.log(i), 100)
+		console.log(i), 100) 	// (10) 10
 	}
-	// (10) 10
+	// нужно вывестис числа с 0-9
 ```
-чтобы вывести числа от 0 - 9
+
 – – – – – – – – – – – – – – – – – – 
-Поведение изменится если использовать let позволяет создавать новую привязку при каждом вызове функции
+Поведение изменится если переместить определение let внутри цикла, создает новую привязку при каждом вызове функции
 ```javascript
 for (let i = 0; i < 10; i++) {
 	setTimeout( () => 
 	console.log(i), 100)
 }
 ```
+
+– – – – – – – – – – – – – – – – – – 
+Цикл for создаёт новое лексическое окружение для каждой итерации. Можно создать переменную j и скопировать в нее i;
+Примитивы копируются «по значению», поэтому мы получаем совершенно независимую копию i, принадлежащую текущей итерации цикла.
+
+```javascript
+	for (var i =0; i < 10; i++) {
+		let j = i;
+		setTimeout(() => console.log(j), 100); // (10) 10
+	}
+```
+
 – – – – – – – – – – – – – – – – – – 
 Явно паредать параметр во внутреннюю функцию
 ```javascript
-for (var i = 0; i < 10; i++) {
+var i = 0;
+for (i; i < 10; i++) {
 	setTimeout(
 		function(i) {
 			return function() {
@@ -96,6 +147,7 @@ for (var i = 0; i < 10; i++) {
 		}(i),
 		100 ); }
 ```
+
 – – – – – – – – – – – – – – – – – – 
 Похожая задача только с использованием массива 
 
@@ -106,7 +158,7 @@ for (const [i, item] of arr.entries()) {
 }
 ```
 
-### 7. Какую роль играют { } [Curly brackets or braces]
+### 9. Какую роль играют { } [Curly brackets or braces]
 ```javascript
 let i = 10;
 let b = {}:
@@ -117,10 +169,71 @@ let b = {}:
 ```
 Только декоративную, никак не влияют на код
 
-### 8. Что будет выведено в консоль ? 
+### 10. Что будет выведено в консоль ? 
 ```javascript
 console.log(4,30+2); 	// 4 32 использован оператор "," вместо "." 
 console.log("4.30"+2);	// 4.302 будет преобразован в строку
 console.log("4.30" -2); // 2.3
 console.log("4.30" +2); // 4.302
+```
+### 11 Какие методы есть в Promis	
+В классе Promise есть 5 статических методов.	
+
+- Promise.all(promises) – ожидает выполнения всех промисов и возвращает массив с результатами. Если любой из указанных промисов вернёт ошибку, то результатом работы Promise.all будет эта ошибка, результаты остальных промисов будут игнорироваться.	
+- Promise.allSettled(promises) (добавлен недавно) – ждёт, пока все промисы завершатся и возвращает их результаты в виде массива с объектами, у каждого объекта два свойства:	
+state: "fulfilled", если выполнен успешно или "rejected", если ошибка,	
+value – результат, если успешно или reason – ошибка, если нет.	
+- Promise.race(promises) – ожидает первый выполненный промис, который становится его результатом, остальные игнорируются.	
+- Promise.resolve(value) – возвращает успешно выполнившийся промис с результатом value.	
+- Promise.reject(error) – возвращает промис с ошибкой error.
+
+```javascript
+ Promise.all([	
+  new Promise((resolve, reject) => setTimeout(() => resolve(1), 1000)),	
+  new Promise((resolve, reject) => setTimeout(() => reject(new Error("Ошибка!")), 2000)),	
+  new Promise((resolve, reject) => setTimeout(() => resolve(3), 3000))	
+]).catch(alert); // Error: Ошибка!	
+// Проверка промиса выполняется только на ошибку, сработает только ошибка независимо от других результатов
+ let requests = names.map(name => fetch(`https://api.github.com/users/${name}`));	
+
+ Promise.all(requests)	
+  .then(responses => {	
+    // все промисы успешно завершены	
+    for(let response of responses) {	
+      alert(`${response.url}: ${response.status}`); // покажет 200 для каждой ссылки	
+    }	
+
+     return responses;	
+  })	
+  // преобразовать массив ответов response в response.json(),	
+  // чтобы прочитать содержимое каждого	
+  .then(responses => Promise.all(responses.map(r => r.json())))	
+  // все JSON-ответы обработаны, users - массив с результатами	
+  .then(users => users.forEach(user => alert(user.name)));	
+```
+
+ ### 12 Каррирование функций 	
+Каррирование – это трансформация функций таким образом, чтобы они принимали аргументы не как f(a, b, c), а как f(a)(b)(c).	
+
+ ### 13 Наследование прототипное, обектное и функциональное 	
+Прототипное Свойство __proto__ — исторически обусловленный геттер/сеттер для [[Prototype]]	
+Когда мы хотим прочитать свойство из object, а оно отсутствует, JavaScript автоматически берет его из прототипа. В программировании такой механизм называется «прототипным наследованием».	
+
+```javascript
+ let animal = {	
+  eats: true,	
+  walk() {	
+    /* этот метод не будет использоваться в rabbit */	
+  }	
+};	
+
+ let rabbit = {	
+  __proto__: animal	
+};	
+
+ rabbit.walk = function() {	
+  alert("Rabbit! Bounce-bounce!");	
+};	
+
+ rabbit.walk(); // Rabbit! Bounce-bounce!	
 ```
