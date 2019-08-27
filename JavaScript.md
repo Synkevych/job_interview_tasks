@@ -91,7 +91,7 @@ str.repeat(n)
 	console.log(obj, num) 	// { name: 'Roman' } undefined
 ```
 
-Сдесь сработает замыкание, если функции не передавть параметры то она сработает так как и ожидалось 
+Сдесь сработает замыкание, если функции не передавть аргументы функции и удалить параметры(obj, num) то она сработает так как и ожидалось 
 ```javascript
 	let obj = { };
 	let num;
@@ -271,3 +271,21 @@ new Promise((resolve, reject) => {
 
  rabbit.walk(); // Rabbit! Bounce-bounce!	
 ```
+### Конструкция switch: 
+```javascript
+let a = 2 + 2;
+
+switch (a) {
+  case 3: // выполняется строгое сравнивание
+    alert( 'Маловато' );
+    break;
+  case 4:
+    alert( 'В точку!' );
+    break; // прерывает выполнение кода дальше 
+  case 5:
+    alert( 'Перебор' );
+    break;
+  default: // необязательный блок 
+    alert( "Нет таких значений" );
+}
+````
