@@ -304,4 +304,44 @@ lasName; // Synkevych
 function swap (a, b){
 return [a, b] = [b, a];
 swap(10, 5); // 5, 10
+```
+### 15 Использование класов взамен функциям 
+```javascript
+// old way 
+function Student(firstName, lastName){
+	this.firstName = firstName;
+	this.lastName = lastName;
+}
+Student.prototype.sayHello = function(){
+	return "Hello" + this.firstName + ' ' + this.lastName;
+}
 
+function Student(){
+	Person.apply(this, arguments);
+	}
+
+// ES2015
+class Person {
+	constructor(firstName, lastName){
+		this.fistName = firstName;
+		this.lastName = lastName;
+	}
+
+	sayHello(){
+		return `Hello ${this.firstName} ${this.lastName}`;
+		}
+
+// Статический метод можно вызвать только по имени класса (невозможо по имени  объекта)
+	static isStudent(obj){
+		return obj.constructor === Student;
+		}
+}
+``` 
+### 16 Наследование || ES2015 Inheritance
+```javascript 
+class Student extends Person{
+	constructor(firstName, lastName){
+		super(firstName, lastName)
+	}
+} 
+```
