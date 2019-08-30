@@ -345,3 +345,15 @@ class Student extends Person{
 	}
 } 
 ```
+
+### 17 Конвертирование объекта в массив 
+```
+let divs = document.getElementByTagName('div');
+
+let converted = [].slice.call(divs);
+let converted2 = Array.from(divs);
+let converted3 = Object.assing( {}, divs); //  Maybe not a deep clone   
+
+converted.reduce // function reduce() { ... }
+```
+converted.reduce // function reduce() { ... }
