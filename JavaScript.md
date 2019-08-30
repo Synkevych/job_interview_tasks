@@ -271,7 +271,7 @@ new Promise((resolve, reject) => {
 
  rabbit.walk(); // Rabbit! Bounce-bounce!	
 ```
-### Конструкция switch: 
+### 14 Конструкция switch: 
 ```javascript
 let a = 2 + 2;
 
@@ -289,3 +289,19 @@ switch (a) {
     alert( "Нет таких значений" );
 }
 ````
+
+### Деструктуризация ES2015
+```javascript
+let user = {
+	fistName: "Roman",
+	lastName: "Synkevych"
+	}
+
+let { firstName: name, lastName } = user;
+name; // Roman, different variables name 
+lasName; // Synkevych
+
+function swap (a, b){
+return [a, b] = [b, a];
+swap(10, 5); // 5, 10
+
