@@ -1,7 +1,7 @@
 ## Use Promise future in ES2015
 
 ```javascript
-unction getMostFollowers(...usernames) {
+function getMostFollowers(...usernames) {
 	let baseUrl = "https://api.github.com/users/";
 	let urls = usernames.map(username => $.getJSON(baseUrl + username));
 console.log("urls",urls);
