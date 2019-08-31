@@ -162,13 +162,20 @@ for (const [i, item] of arr.entries()) {
 ### 9. Какую роль играют { } [Curly brackets or braces]
 ```javascript
 let i = 10;
-let b = {}:
+let b = {};
 	{ i += 5;
 	  b.name = "Bohdan";
 	}
-	console.log(i, b)
+	console.log(i, b); //15 { name: 'Bohdan' }
 ```
-Только декоративную, никак не влияют на код
+Только декоративную, никак не влияют на код.
+НО! Есть и такой сценарий: 
+```javascript
+{
+ let name = "Roman";
+}
+console.log(name); // name is not defined
+```
 
 ### 10. Что будет выведено в консоль ? 
 ```javascript
