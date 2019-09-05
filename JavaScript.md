@@ -364,3 +364,28 @@ let converted3 = Object.assing( {}, divs); //  Maybe not a deep clone
 converted.reduce // function reduce() { ... }
 ```
 converted.reduce // function reduce() { ... }
+
+### 18 Глубокая копия массива 
+```
+let array = [1,2,3];
+
+let arrayCopy = [...array]; 
+
+// but !
+arrayCopy[0] = '👻'; // change shallow element
+arrayCopy[1][0] = '💩'; // change nested element
+console.log(arrayCopy); // [ '👻', [ '💩' ], 3 ]
+
+// ❌ Nested array got affected
+console.log(nestedArray); // [ 1, [ '💩' ], 3 ]
+
+// Deep Copy
+let arrayCopy = JSON.parse(JSON.stringify(array)); 
+
+// Shallow Copy
+let arrayCopy = array.slice();
+
+// Shallow Copy
+let arrayCopy = array.map(a => Object.assign({}, a)
+
+
