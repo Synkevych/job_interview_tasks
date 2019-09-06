@@ -387,5 +387,12 @@ let arrayCopy = array.slice();
 
 // Shallow Copy
 let arrayCopy = array.map(a => Object.assign({}, a)
-
-
+```
+### 19 Anomalies of JavaScript
+```javascript
+0.1 + 0.2 === 0.3 //false
+4- “- 4” === 8 //true
+{ } + [ ] === 0 //true
+let a = []; a == !a //true
+NaN === NaN // false
+```
