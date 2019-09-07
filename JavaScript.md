@@ -58,7 +58,7 @@ Math.round(double)
 let arr = [1,2,3];
 let newArr = [4,5];
 const addEndOfMass = (state = {}, action ) => {
-	return { Object.asing({}, ...state, newArr)}
+	return { Object.asing({}, arr, newArr)}
 }
 ```
 ### 5. Найболее сложное задание? 
