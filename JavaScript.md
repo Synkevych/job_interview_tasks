@@ -1,3 +1,8 @@
+### How does JavaScript even work ? 
+A single-threaded non-blocking asynchronous concurrent language 
+Have a call stack and event loop. a callback queue some other apis and stuff
+v8 have call stack and a heap[куча]
+
 ### 1. Принципиальная разница между var & let
 ```javascript
 for(var i = 0; i < 10; i++){ // code }
