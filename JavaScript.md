@@ -424,3 +424,54 @@ let arrayCopy = array.map(a => Object.assign({}, a)
 let a = []; a == !a //true
 NaN === NaN // false
 ```
+### write a function which return reverting strinng 
+Input:"Hello Coder"
+Output: "redoC olleH"
+```javascript
+// v 1 
+function returnString(str){
+	let newStr = '';
+	for (i = str.length; i>=0; i-- ){
+		newStr += str.charAt(i)
+	}
+	return newStr;
+}
+function returnString(str){
+	// convert to array ['j', 'a', 'v' ... ]
+	// reverse array 
+	// convert from array to string 
+	return str.split('').reverse().join('');
+}
+```
+### converting a time
+Input:"126"
+Output:"2:6"
+
+Input:13
+Output:1:3
+
+Input:63
+Output:"0:3"
+
+### 
+Input:"++b+==4++v-"
+Output:true
+
+Input:"c+=++b"
+Output:false
+
+### From string to number 
+```javascript
+parseInt('42.122px', 10); 	// retutn 42
+parseFloat('42.122px') 	//42.122
+Number('42.122') 	//42.122
+Number('42.122px') 	//NaN
+```
+### From string to arrayy
+"Hello JavaScript".split(''); ['H','e','l','l','o', ...];
+"Hello JavaScript".split(' '); ['Hello', 'JavaScript'];
+
+## From number to string
+(412341).toString().split('') //[ '4', '1', '2', '3', '4', '1' ]
+(412341).toString()		// '412341'
+(6).toString(2));       // return '110'
