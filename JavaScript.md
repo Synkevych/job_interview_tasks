@@ -471,6 +471,12 @@ Number('42.122px') 	//NaN
 "Hello JavaScript".split(''); ['H','e','l','l','o', ...];
 "Hello JavaScript".split(' '); ['Hello', 'JavaScript'];
 
+All string method:
+ 'quote', 'substring', 'toLowerCase', 'toUpperCase', 'charAt',
+      'charCodeAt', 'indexOf', 'lastIndexOf', 'startsWith', 'endsWith',
+      'trim', 'trimLeft', 'trimRight', 'toLocaleLowerCase',
+      'toLocaleUpperCase', 'localeCompare', 'match', 'search',
+      'replace', 'split', 'substr', 'concat', 'slice'
 ## From number to string
 (412341).toString().split('') //[ '4', '1', '2', '3', '4', '1' ]
 (412341).toString()		// '412341'
