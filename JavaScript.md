@@ -27,20 +27,6 @@ var s = 11; // s = 10
 console.log(a); // undefined 
 var a = 0;
 
-### 2. Какие параметры есть в Promise
-У объекта promise возвращаемого конструктором new Promise, есть внутренние свойства, к которым нет прямого доступа:
-- **state** ("состояние") – вначале **"pending"**( ожидание ), потом меняется на **"fulfilled"** (выполнено успешно) при  вызове resolve или на **"rejected"** выполненео с ошибкой при вызове "reject"; 
-- **result** ("результат") – вначале **undefined**, далее меняется на **value** при вызове resolve(value) или на error при вызове reject(error).
-синтаксис: 
-```javascript
-let promise = new Promise(function(resolve, reject) {
-  // эта функция выполнится автоматически, при вызове new Promise
-
-  // через 1 секунду сигнализировать, что задача выполнена с результатом "done"
-  setTimeout(() => resolve("done"), 1000);
-});
-```
-
 ### 3. Как взять от 7.32 дробную часть?
 Например на серевер нужно отправить число частями.
 ```javascript
@@ -228,7 +214,7 @@ console.log("4.30" +2); // 4.302
  ### 11 Каррирование функций 	
 Каррирование – это трансформация функций таким образом, чтобы они принимали аргументы не как f(a, b, c), а как f(a)(b)(c).	
 
- ### 12 Наследование прототипное, обектное и функциональное 	
+ ### 12 Наследование прототипное, объектное и функциональное 	
 Прототипное Свойство __proto__ — исторически обусловленный геттер/сеттер для [[Prototype]]	
 Когда мы хотим прочитать свойство из object, а оно отсутствует, JavaScript автоматически берет его из прототипа. В программировании такой механизм называется «прототипным наследованием».	
 
@@ -320,6 +306,7 @@ class Person {
 }
 ``` 
 ### 16 Наследование || ES2015 Inheritance
+
 ```javascript 
 class Student extends Person{
 	constructor(firstName, lastName){
@@ -384,6 +371,7 @@ function returnString(str){
 	}
 	return newStr;
 }
+
 function returnString(str){
 	// convert to array ['j', 'a', 'v' ... ]
 	// reverse array 
@@ -391,6 +379,7 @@ function returnString(str){
 	return str.split('').reverse().join('');
 }
 ```
+
 ### converting a time
 Input:"126"
 Output:"2:6"
@@ -401,7 +390,7 @@ Output:1:3
 Input:63
 Output:"0:3"
 
-### 
+### check the correct expression or not
 Input:"++b+==4++v-"
 Output:true
 
@@ -425,6 +414,7 @@ All string method:
       'trim', 'trimLeft', 'trimRight', 'toLocaleLowerCase',
       'toLocaleUpperCase', 'localeCompare', 'match', 'search',
       'replace', 'split', 'substr', 'concat', 'slice'
+
 ## From number to string
 (412341).toString().split('') //[ '4', '1', '2', '3', '4', '1' ]
 (412341).toString()		// '412341'
@@ -435,6 +425,7 @@ String, Number, Object, Array, Boolean, null;
  {
 	"balance": "204."
 }
+
 JSONP - JSON with padding» (JSON с набивкой)
 functionCall({"Name": "Foo", "Id": 1234, "Rank": 7});
 

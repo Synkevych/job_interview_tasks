@@ -1,5 +1,24 @@
 ## Use Promise future in ES2015
 
+
+### 2. Какие параметры есть в Promise
+У объекта promise возвращаемого конструктором new Promise, есть внутренние свойства, к которым нет прямого доступа:
+- **state** ("состояние") – вначале 
+- - **"pending"**( ожидание ), потом меняется на 
+- - **"fulfilled"** (выполнено успешно) при  вызове resolve или на **"rejected"** выполненео с ошибкой при вызове "reject"; 
+- **result** ("результат") – вначале 
+- - **undefined**, далее меняется на 
+- - **value** при вызове resolve(value) или на error при вызове reject(error).
+синтаксис: 
+```javascript
+let promise = new Promise(function(resolve, reject) {
+  // эта функция выполнится автоматически, при вызове new Promise
+
+  // через 1 секунду сигнализировать, что задача выполнена с результатом "done"
+  setTimeout(() => resolve("done"), 1000);
+});
+```
+
 ```javascript
 function getMostFollowers(...usernames) {
 	let baseUrl = "https://api.github.com/users/";
@@ -8,8 +27,8 @@ console.log("urls",urls);
 	return Promise.all(urls).then( (data) =>{
     console.log("followers", data)
     let max = data.sort((a, b) => {a.followers < b.followers
-      console.log("a.followers",a.followers);
-      console.log("b.followers",b.followers);
+      console.log("a.followers", a.followers);
+      console.log("b.followers", b.followers);
     }
     )[0];
 		return `${max.name} has the most followers with ${max.followers}`;
