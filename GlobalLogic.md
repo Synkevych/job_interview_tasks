@@ -72,6 +72,36 @@ VACUUM FULL - используется для польной очистки ба
 ––––––
 | [] |
 ______
+(Example)[https://codepen.io/sunkevu4/pen/jONxjNP]
+```css
+/* 1  */
+.child{
+  position: absolute;
+  float: left;
+  left: 50%;
+  margin-left: -50px;
+  top: 50%;
+  margin-top: -50px;
+
+/* 2 */
+         position:absolute; 
+  /* or fixed */
+  left:0; right:0;
+  top:0; bottom:0;
+  margin:auto;
+  max-width:100%;
+  max-height:100%;
+	overflow:auto;
+/* v3 */
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+```
+
 ### 9 CSS after and before tag
 
 ### 10 Sorting and finding methonn in JavaScript 

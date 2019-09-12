@@ -359,44 +359,6 @@ let arrayCopy = array.map(a => Object.assign({}, a)
 let a = []; a == !a //true
 NaN === NaN // false
 ```
-### write a function which return reverting strinng 
-Input:"Hello Coder"
-Output: "redoC olleH"
-```javascript
-// v 1 
-function returnString(str){
-	let newStr = '';
-	for (i = str.length; i>=0; i-- ){
-		newStr += str.charAt(i)
-	}
-	return newStr;
-}
-
-function returnString(str){
-	// convert to array ['j', 'a', 'v' ... ]
-	// reverse array 
-	// convert from array to string 
-	return str.split('').reverse().join('');
-}
-```
-
-### converting a time
-Input:"126"
-Output:"2:6"
-
-Input:13
-Output:1:3
-
-Input:63
-Output:"0:3"
-
-### check the correct expression or not
-Input:"++b+==4++v-"
-Output:true
-
-Input:"c+=++b"
-Output:false
-
 ### From string to number 
 ```javascript
 parseInt('42.122px', 10); 	// retutn 42
