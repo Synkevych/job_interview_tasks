@@ -70,6 +70,42 @@ const iqTest = test => {
   return numbers.indexOf(differ) + 1
 }
 ```
+### Count all duplicate in array and return new array 
+Input: '1, 2, 2, 3, 3, 3, 4, 4, 4, 4'
+Outpu: [ '1', [ '2', 2 ], [ '3', 3 ], [ '4', 4 ] ]
+
+```jsx
+// v1
+function compress(a) {
+    const array = a.split(', ');
+    let comp = [];
+    for (let i = 0; i < array.length; i++) {
+        let count = 1,
+            elem = array[i];
+        while (array[i] === array[i + 1]) {
+            i++; count++;
+        }
+	comp.push(count > 1 ? [Number(elem), count] : Number(elem));
+    }
+    return comp;
+}
+
+// v2
+function compress(a) {
+	const array = a.split(", ")
+	const n = array.length;
+	if (n == 0) return [];
+	const cs = [];
+	let i = 0;
+	while (i < n) {
+		const x = array[i];
+		let c = 1;
+		while (++i < n && array[i] === x) ++c;
+		cs.push(c > 1 ? [Number(x), c] : Number(x));
+	}
+	return cs;
+}
+```
 ### 3 Блочные и строчные элементы
 Строчные элементы могут содержать только данные и другие строчные элементы.
 Строчными елементами являются:
