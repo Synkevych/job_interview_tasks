@@ -33,7 +33,43 @@ Output: {a:1, index:0}, {a:2, idex:1}
 }, []);
 // [ { a: 1, i: 0 }, { a: 2, i: 1 } ]
 ```
+### Find index of first different from the others element 
+```jsx 
+//v1
+function iqTest(numbers) {
+	let newNum = numbers.split(' ');
+	let filtered = newNum.filter((elem, i, arr) => elem % 2 === 0);
+	res = 0;
+	if (filtered.length > 1) {
+		res = [...newNum].reduce(function(acc, el, i, arr) {
+			if (el !== filtered[i] && acc === null) acc = i;
+			return acc;
+		}, null);
+	} else {
+		res = newNum.indexOf(String(filtered[0]));
+	}
+	return res + 1;
+}
+console.log('two', iqTest('43 28 1 91')); // 2
+//v2 
 
+function iqTest(numbers){
+  var nums = numbers.split(" ").map(x => x % 2);  
+  var sum = nums.reduce((a,b) => a + b);  
+  var target = sum > 1 ? 0 : 1;
+  
+  return nums.indexOf(target) + 1;
+}
+//v3
+const iqTest = test => {
+  const numbers = test.split(" ");
+  const evens = numbers.filter(el => el%2 );
+  const odds = numbers.filter(el => !(el%2));
+  const differ = evens.length == 1 ? evens[0] : odds[0]
+  
+  return numbers.indexOf(differ) + 1
+}
+```
 ### 3 Блочные и строчные элементы
 Строчные элементы могут содержать только данные и другие строчные элементы.
 Строчными елементами являются:
