@@ -3,6 +3,18 @@ A single-threaded non-blocking asynchronous concurrent language
 Have a call stack and event loop. a callback queue some other apis and stuff
 v8 have call stack and a heap[куча]
 
+### Преобразование типов для примитивов
+в if идет преобразование к логическому типу
+при сравнении "==" к численому преобразованию 
+to false:
+!!undefined === false,
+!!null === false ,
+0, NaN, "",
+
+to true: 
+[], {}, 1, " ", "0"
+
+
 ### 1. Принципиальная разница между var & let
 ```javascript
 for(var i = 0; i < 10; i++){ // code }
@@ -52,6 +64,7 @@ const addEndOfMass = (state = {}, action ) => {
 	return { Object.asing({}, arr, newArr)}
 }
 ```
+
 ### 5. Найболее сложное задание? 
 
 Правильно давать имена переменным и функциям. 
@@ -182,6 +195,7 @@ for (const [i, item] of arr.entries()) {
 ```
 
 ### 9. Какую роль играют { } [Curly brackets or braces]
+Вызывают 3 тип замыкания – блочное. 
 ```javascript
 let i = 10;
 let b = {};
@@ -190,9 +204,7 @@ let b = {};
 	b.name = "Bohdan";
 }
 	console.log(i, b); //15 { name: 'Bohdan' }
-
 ```
-
 Только декоративную, никак не влияют на код.
 НО! Есть и такой сценарий: 
 ```javascript
@@ -255,7 +267,7 @@ switch (a) {
 }
 ```
 
-### Деструктуризация ES2015
+### Деструктуризация ES2015 или оператор Rest
 
 ```javascript
 let user = {
