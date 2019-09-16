@@ -403,3 +403,31 @@ String, Number, Object, Array, Boolean, null;
 JSONP - JSON with padding» (JSON с набивкой)
 functionCall({"Name": "Foo", "Id": 1234, "Rank": 7});
 
+### apply(), call(), bind() 
+```js
+function transition( name ){
+//  Мы можем использовать на нём slice ()
+//  Число один в параметре говорит о том, нужно отдать копию массива от параметра с индексом 1 и до конца. Или простым языком, просто пропустить первый элемент.
+	var args = Array.prototype.slice.call(argument, 1);
+	return args;
+}
+ transitionTo ("contact", "Today", "20"); // ["Today", "20"]
+
+// v2п перебор arguments который есть объектом и не имеет методов 
+
+function isThreePassed(){
+ const args = Array.prototype.slice.call(arguments);
+ return args.indexOf(3) != -1;
+}
+ ```
+
+ ### Объеденить 2 массива со вложеностю 
+ ```js 
+ const arr= [1, [1, 2, [3, 4]], [2, 4]];
+
+ const flatten = (arr) => 
+ 	arr.reduce((flat, toFlatten) =>  flat.concat(Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten), []);
+  //flatter -> [1, 1, 2, 3, 4, 2, 4]
+  ```
+
+ 
