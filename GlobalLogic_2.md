@@ -77,17 +77,43 @@ console.log({a:1} || {b:2}) // not true !!! - {a: 1}
 //alway first element 
 
 // ++"a" = NaN + "a"
-console.log(("b" + "a" + + "a"+"a").toLowerCase()); 
+console.log(("b" + "a" + + "a"+"a").toLowerCase()); // banana
 ```
 
-### Write the function to do this add(2)(3) // 5
+### Каррирование функций(карринг): Write the function to do this add(2)(3) // 5
 
 **Auto-caried** Curring takes a function which receives multiple arguments and returns it into a series of **higher-order function**, each receiving a single arguments.
+Каррирование или карринг в функциональном программировании – это преобразование функциии с множеством аргументов в набор вложеных функций с одним аргументм.
+
 
 ```js
 //  Auto
-const multiply = a => b => a + b;
-multiply(3)(5); //8
+const multiply = a => b => c => a * b * c;
+multiply(1)(2)(3); //6
+
+// the same way but different writing 
+
+const mul1 = multiply(1);
+const mul2 = mul1(2);
+const result = mul2(3);
+log(result); // 6
+
+// вариант функции для вычисления объёма 
+
+const volume = l => (w, h) => l * w * h;
+volume(70)(90,30);
+volume(70)(390,320);
+volume(70)(940,340);
+
+// вариант функции расчета прямоугольных параллепипедов, одна из сторон которых зафиксирована
+function volume(l,h,w) {
+    return l * h * w
+}
+const hV = partial(volume,100);
+
+hV(200,900); // 18000000
+hV(70,60); // 420000
+
 ```
 
 ```js
@@ -129,8 +155,10 @@ function add(x){
 
 console.log( add(2)(5)(4) ); // 11
 ```
-### Композиция функции 
-Композиция это техника, позволяющая вам взять две и более простых функций и объединить их в одну, более сложную функцию. 
+### Композиция функции - вложеная функиция одна в другую
+Композиция это техника, позволяющая вам взять две и более простых функций и объединить их в одну, более сложную функцию.
+**func1(func2(arg)))**
+
 ```js 
 function addOne(x) {
   return x + 1;
@@ -151,8 +179,7 @@ foo.x = foo = {n: 2};
 // foo - {n :2}
 // bar - {n: 1, x: {n: 2} }
 // foo.x - undefined 
-// при выводе foo.x наше foo ссылается на его новое значение, в котором отсутствует x , то соответственно foo.x будет не определенно — undefined .
-
+// при выводе foo.x наше foo ссылается на его новое значение, в котором отсутствует x, то соответственно foo.x будет не определенно — undefined.
 ```
 
 ### Explain the result of console 
