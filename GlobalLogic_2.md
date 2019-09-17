@@ -82,10 +82,16 @@ console.log(("b" + "a" + + "a"+"a").toLowerCase());
 
 ### Write the function to do this add(2)(3) // 5
 
+**Auto-caried** Curring takes a function which receives multiple arguments and returns it into a series of **higher-order function**, each receiving a single arguments.
+
 ```js
+//  Auto
+const multiply = a => b => a + b;
+multiply(3)(5); //8
+```
 
-// v1 
-
+```js
+// v1
 const add = (a) => {
 	let sum = a;
 	const func =(b) => {
@@ -123,6 +129,19 @@ function add(x){
 
 console.log( add(2)(5)(4) ); // 11
 ```
+### Композиция функции 
+Композиция это техника, позволяющая вам взять две и более простых функций и объединить их в одну, более сложную функцию. 
+```js 
+function addOne(x) {
+  return x + 1;
+}
+function timesTwo(x) {
+  return x * 2;
+}
+console.log(addOne(timesTwo(3))); //7
+console.log(timesTwo(addOne(3))); //8
+```
+
 ### Expected result 
 ```js 
 var foo = {n: 1};
