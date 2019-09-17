@@ -34,4 +34,9 @@ $ git merge v3
 
 ### git stash
 Позволяет создать новую "заначку". Тоесть скрыть все изменения перед переключение на другую ветку не делая при этом коммит. 
-git stash apply – позволяет вернуться к припрятаным работам. 
+git stash apply – позволяет вернуться к припрятаным работам.
+
+### keep the file in your working tree but remove it from your staging area.
+```git
+git rm --cached README
+```
