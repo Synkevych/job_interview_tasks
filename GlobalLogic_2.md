@@ -273,5 +273,30 @@ var tree1 = { valueNode: 1, next: [ { valueNode: 3, next: null	}, ... ] }
 
 console.log(getSum(tree1)); //sum =3 
 ```
+### JavaScript Async 
+Минимальное время которое можно задать зависит от движка браузера
+```
+console.log(1);
+setTimeout(function() {
+	console.log(2);
+}, 0)	// даже если указанн 0, они помещаются в конец вызова 
+console.log(3);
 
+// 1
+// 3
+// undefined from chrome!!
+// 2 
+```
+### Есть div, в нем другой div, у второго задан padding 50%, как это все будет выглядеть?
+Браузер автоматически определит размер ширины, если в родительском блоке есть задана **width**,
+padding бедет равен половине этого значения. Тоэстьт эот будет куб. 
+https://codepen.io/sunkevu4/full/dybgvRg
 
+### seven(plus(one())) -> 8. five(minus(two())) -> 3
+
+Используется композиция функций 
+```js
+const one = arg => 1 + (arg || 0);
+const plus = (arg) => arg
+const seven = arg => 7 + arg; 
+```
