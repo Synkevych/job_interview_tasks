@@ -230,3 +230,45 @@ console.log(6);
 
 // 1, 6, 3, 4, 5, 2
 ```
+### добавление прототипа в Number (2).plus(3).minus(1)
+```js 
+Number.prototype.plus = function (value) {
+	return this + value;
+}
+// Number.prototype.plus = (a) => this+b; работать не будет у него нет доступа к this!
+```
+
+### Use arguments inside arrow functions, do not use arguments inside
+- input: '*', '1', 'b', '1c'
+- outpu: '1*b*1c'
+
+```js
+ //new & short way 
+const getStr = (...arguments) => [].slice.call(arguments, 1).join(arguments[0])
+getStr( '*', '1', 'b', '1c' ) // '1*b*1c'
+
+//old way
+function getStr() {
+	return [].slice.call(arguments, 1).join(arguments[0])
+}
+```
+### Recursion to sum the value inside object tree
+```js 
+var sum = 0;
+
+function getSum(obj) {
+	sum += obj.valueNode;
+	if (obj.next != null) {
+		for (var i = 0; i < obj.next.length; i++) {
+			getSum(obj.next[i]);
+		}
+	}
+
+	return sum;
+}
+var tree1 = { valueNode: 1, next: [ { valueNode: 3, next: null	}, ... ] }
+
+console.log(getSum(tree1)); //sum =3 
+```
+
+
