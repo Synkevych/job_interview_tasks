@@ -300,3 +300,43 @@ const one = arg => 1 + (arg || 0);
 const plus = (arg) => arg
 const seven = arg => 7 + arg; 
 ```
+### Напишите код, который при клике на любой div внутри root будет выводить в консоль его id.
+```js
+$('#root').on('click', function (event) {
+    event.stopPropogation();
+    console.log($(event.target).attr('id'));
+})
+```
+### Object from array 
+```js
+var arr = [
+ {name: 'width', value: 10}, 
+ {name: 'height', value: 20}
+]
+//Output: {width: 10, height: 20}
+const res = arr => {
+let obj = {};
+	arr.forEach(function(el) {
+		obj[el.name] = el.value;
+	});
+	return obj;
+}
+```
+
+### what the return ?
+```js
+var i = 10;
+var array = [];
+
+while (i--) {
+	(function(i) {
+		var i = i;
+		array.push(function() {
+			return i + i;
+		});
+	})(i);
+}
+
+console.log([array[0](), array[1]()]);
+// [18, 16]
+```
