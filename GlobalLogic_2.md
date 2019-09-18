@@ -244,8 +244,11 @@ Number.prototype.plus = function (value) {
 
 ```js
  //new & short way 
-const getStr = (...arguments) => [].slice.call(arguments, 1).join(arguments[0])
+const getStr = (joiner, ...rest) => [].slice.call(arguments, 1).join(arguments[0]);
 getStr( '*', '1', 'b', '1c' ) // '1*b*1c'
+
+// better 
+const getStr = (joiner, ...rest) => rest.join(joiner)
 
 //old way
 function getStr() {
