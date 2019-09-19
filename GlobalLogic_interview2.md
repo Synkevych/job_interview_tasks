@@ -354,3 +354,36 @@ obj.funk();
 function f() { console.log(this.x); }.bind(obj, a, b);
 f();
 ```
+
+### Преобразование типов в JS
+**Оператор +** выполняется с лева на право и вызывает переобразование только в том случае если операнды разных типов
+массив будет преобразован к строке 
+```js 
+15 + 3 + 'number' ==  'number'+ 15 + 3 // false
+[] + null + 1 			// '' + null + 1
+{}+[]+{}+[1]			// '0[object Object]1'
+!+[]+[]+![]				// 'truefalse'
+new Date(0) - 0			// => 0
+new Date(0) + 0			// 'Thu Jan 01 1970 02:00:00 GMT+0200 (EET)0'
+```
+**Оператор ==** вызывает численное приобразование, строки преобразовуются в NaN который не равен даже самому себе!!!
+```js
+0 == "0"				// 0 == 0  => false == false => true 
+'true'== true 			// NaN == 1 => false 
+null == ''				// null == 0 => false  
+null == 0               // false, null is not converted to 0
+null == null            // true
+undefined == undefined  // true
+null == undefined       // true
+NaN === NaN 			// false 
+NaN == NaN 				// false
+!!"false" == !!"true"   // true == true => true 
+if (value !== value) { console.log("we're dealing with NaN here") }
+['x'] ==  'x'			// 'x' == 'x' => true 
+[1,2,3] == [1,2,3]		//false
+```
+
+**Логические операторы || и &&** преобразовавают операнды к булевому значению но возващают всегда оригинальные значения
+```js 
+0 || "0" && {} 			// false || true => "0" && {} => {}  
+```
