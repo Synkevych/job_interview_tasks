@@ -39,6 +39,7 @@ console.log( a ); //10, not changed
 
 //v2 if pased parameter 
 
+
 function changeA(o) {
 	console.log("o", o); //10 we get value from globa variable
 	var o = 5; // change this variable 
@@ -386,4 +387,31 @@ if (value !== value) { console.log("we're dealing with NaN here") }
 **Логические операторы || и &&** преобразовавают операнды к булевому значению но возващают всегда оригинальные значения
 ```js 
 0 || "0" && {} 			// false || true => "0" && {} => {}  
+```
+### what the return  ? 
+
+```js 
+let a = 1;
+let b = { toString() {return '1'} };
+let c = 1;
+// '111'
+```
+### Automatic sort inside object using for .. in 
+```js 
+for(let key in  {1:1, 0:0}) {
+ alert(key);
+}
+
+// 2 
+[] + false - null + true => "false"+ null => NaN => NaN
+
+// Reference Error 
+let f = function(x) {
+  alert(x)
+}
+
+(function() {
+  f(1)
+}())
+
 ```
