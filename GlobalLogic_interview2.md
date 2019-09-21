@@ -413,5 +413,47 @@ let f = function(x) {
 (function() {
   f(1)
 }())
-
 ```
+
+### what the length of array a? 
+```js
+var a = [] //a.length = 0
+a[1] = 5 //a.length = 2
+a[3] = 53 //a.length = 4
+delete a[3] //a.length = 4; a[3] = undefined!
+```
+
+### Closure 
+```js 
+const arr = [10, 12, 15, 21];
+for (var i = 0; i < arr.length; i++) {
+  setTimeout(function() {
+    console.log('Index: ' + i + ', element: ' + arr[i]);
+  }, 3000);
+}
+// 0, undefined
+
+// раабочий вариант 1 
+const arr = [10, 12, 15, 21];
+for (var i = 0; i < arr.length; i++) {
+  // передадим функции переменную i, в результате
+  // у каждой функции будет доступ к правильному значению индекса
+  setTimeout(function(i_local) {
+    return function() {
+      console.log('The index of this number is: ' + i_local);
+    }
+  }(i), 3000);
+}
+
+// рабочий ваариант 2 
+const arr = [10, 12, 15, 21];
+for (let i = 0; i < arr.length; i++) {
+  // использование ключевого слова let, которое появилось в ES6,
+  // позволяет создавать новую привязку при каждом вызове функции
+  setTimeout(function() {
+    console.log('The index of this number is: ' + i);
+  }, 3000);
+}
+```
+
+### поиск максимального числа в масиве
