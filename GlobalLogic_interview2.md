@@ -197,9 +197,14 @@ console.log(a[b]); //456
 
 ### if there in array any argument of 3 ? 
 ```js
+// v1 
 function isThreePassed(){
  const args = Array.prototype.slice.call(arguments);
- return args.indexOf(3) != -1;
+ return args.indexOf(3) !== -1; 		//  есть ли значение 3 в масиве ? если нет вернет -1 
+}
+// v3 
+function isThreePassed(...args){
+ return args.some(el => el === 3 ); // есть ли один елемент который имет значение 3   
 }
 
 isThreePassed(1,2) //false
