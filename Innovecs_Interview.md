@@ -2,6 +2,13 @@
 Input:"Hello Coder"
 Output: "redoC olleH"
 ```javascript
+// new way 
+
+res = ""
+for (let s in str){
+	res = c + res;
+}
+
 // v 1 
 function returnString(str){
 	let newStr = '';
