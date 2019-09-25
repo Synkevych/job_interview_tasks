@@ -271,3 +271,62 @@ User.getEmail = function() {
 	this.handleClick = this.handleClick.bind(this);
 	this.handleClick(card.id)
 ```
+// Сортировка масива и удаление дубликатов 
+
+```js
+let arr = [1,2, 2, 3, 3, 3, 6, 4, 4, 4, 4, 10];
+
+// 1
+function compress(arr){
+  let counter = 1;
+	let newArr = [];
+	array.forEach((element, i, arr) => {
+		if (arr.length == 1) {
+			newArr.push(element);
+		} else if (i == 0 && element != arr[i+1]){
+			newArr.push(element);
+		}
+		 else if (arr[i + 1] !== element && counter > 1) {
+			newArr.push([element, counter]);
+			counter = 1;
+		} else if ((element !== arr[i + 1] && counter == 1)) {
+			newArr.push(element);
+		} else {
+			counter += 1;
+		}
+	});
+  return newArr;
+}
+// [ 1, [ 2, 2 ], [ 3, 3 ], 6, [ 4, 4 ], 10 ]
+
+// 2
+function compress(array) {
+
+var r = [],
+		l = array[0],
+		c = 1;
+	for (let v of array.slice(1)) {
+		if (v === l) c++;
+		else {
+			
+			r.push(c === 1 ? l : [l, c]);
+			(l = v), (c = 1);
+		}
+	}
+	r.push(c === 1 ? l : [l, c]);
+	return r;
+}
+
+// 2
+
+  let comp = [];
+    for (let i = 0; i < array.length; i++) {
+        let count = 1,
+            elem = array[i];
+        while (array[i] === array[i + 1]) {
+            i++; count++;
+        }
+        comp.push(count > 1 ? [elem, count] : elem)
+    }
+    return comp;
+```
