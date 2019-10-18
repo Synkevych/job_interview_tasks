@@ -337,3 +337,22 @@ var r = [],
     }
     return comp;
 ```
+
+### return the number of arguments passed to it which have property 'quack'
+```js
+// using call function 
+function duckCount() {
+	return Array.prototype.slice.call(arguments).filter(function(obj) {
+		return Object.prototype.hasOwnProperty.call(obj, 'quack');
+	}).length;
+}
+
+// using redux 
+function duckCount() {
+	let arr = Array.from(arguments);
+	return arr.reduce((acc, arg) => {
+		if (Object.getPrototypeOf(arr) == Object.prototype) acc++;
+		return acc;
+	}, 0);
+}
+```
