@@ -36,7 +36,14 @@ Output: {a:1, index:0}, {a:2, idex:1}
 }, []);
 // [ { a: 1, i: 0 }, { a: 2, i: 1 } ]
 ```
-### Find index of first different from the others element 
+### Return an object that contains the number of times each string occured in the array
+ function countWords(arr) {
+      return arr.reduce(function(countMap, word) {
+        countMap[word] = ++countMap[word] || 1 // increment or initialize to 1
+        return countMap
+      }, {}) // second argument to reduce initialises countMap to {}
+ }
+### Find index of first different from the others element
 ```jsx 
 //v1
 function iqTest(numbers) {
