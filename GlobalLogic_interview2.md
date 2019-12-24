@@ -61,7 +61,7 @@ console.log(a);
 ```
 
 ### Type changing
-
+JS in mathematical operation converts the data into the simplest type for output.
 ```js 
 // just concatenate operators !!! 
 console.log(1+"2"+"3");
@@ -182,7 +182,7 @@ foo.x = foo = {n: 2};
 // foo.x - undefined 
 // при выводе foo.x наше foo ссылается на его новое значение, в котором отсутствует x, то соответственно foo.x будет не определенно — undefined.
 ```
-
+Приоритет операций играет здесь ключевую роль, первая операция это присвоенние *foo.x* ссылки на *foo*, которая изменяется сразу на следующей операции. 
 ### Explain the result of console 
 ```js
 var a={},

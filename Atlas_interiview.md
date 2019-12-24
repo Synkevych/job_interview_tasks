@@ -50,6 +50,8 @@ var s = 11; // s = 10
 console.log(a); // undefined 
 var a = 0;
 
+А также оптимизация и другие полезные вещи. 
+
 ### 3. Как взять от 7.32 дробную часть?
 Например на серевер нужно отправить число частями.
 ```javascript
@@ -71,8 +73,9 @@ Math.round(double)
 ```javascript
 let arr = [1,2,3];
 let newArr = [4,5];
+
 const addEndOfMass = (state = {}, action ) => {
-	return { Object.asing({}, arr, newArr)}
+	return { Object.assing({}, arr, newArr)}
 }
 ```
 
