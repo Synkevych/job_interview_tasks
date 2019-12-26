@@ -20,20 +20,20 @@ data.forEach(function(x) {
   sumOfSquares += х * х; // =>55 : 1+4+9+16+25
 });
 
-
-// Functions 
-//In addition to the arguments, 
-// when calling any function, it is passed another value that defines the context of the call 
+// Functions
+//In addition to the arguments,
+// when calling any function, it is passed another value that defines the context of the call
 //- the value in the *this* keyword.
 
-// Calculate the factorial 
+// Calculate the factorial
 function factorial(x) {
   if (x <= 1) return 1;
   return x * factorial(x - 1);
-} 
+}
 
-let square = function(x) { return x*x; };
-
+let square = function(x) {
+  return x * x;
+};
 
 // Nested Functions
 
@@ -44,8 +44,25 @@ function hypotenuse(a, b) {
   return Math.sqrt(square(a) + square(b));
 }
 
-//Functions in JavaScript can be called in four ways: 
-// - as functions	
+//Functions in JavaScript can be called in four ways:
+// - as functions
 // - as methods
 // - as constructors
 // - indirectly, using their methods call() and apply()
+
+// this
+// this – is a keyword, not a variable or property name.
+let o = {
+  m: function() {
+    let self = this;
+    console.log(this === o); // => true, this - объект о
+    f();
+    function f() {
+      console.log(this === o); // => false, this глобальный объкт или undefined
+      console.log(self === o); // => true - self значение this внеш. ф-ции
+    }
+  }
+};
+
+// Вызов конструктотра, обозначает ключ. с.  new
+let o = new Object; // === let o = new Object;
