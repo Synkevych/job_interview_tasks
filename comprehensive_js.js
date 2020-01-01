@@ -65,4 +65,54 @@ let o = {
 };
 
 // Вызов конструктотра, обозначает ключ. с.  new
-let o = new Object; // === let o = new Object;
+let o2 = new Object(); // === let o = new Object;
+
+// Замыкаания и лексическая область видимости
+var scope = 'global scope'; // Глобальная переменная
+function checkscope() {
+  var scope = 'local scope'; // Локальная переменная
+  function f() {
+    return scope;
+  } // Вернет значение локальной переменной scope
+  return f();
+}
+checkscope(); // => "local scope"
+
+// Реализация функции с замыканние
+
+var uniquelnteger = (function() {
+  // Определение и вызов
+  var counter = 0; // Частное значение для функции ниже
+  return function() {
+    return counter++;
+  };
+})();
+
+// Использование метода apply() для поиска макс. елемента.
+var biggest = Math.max.apply(Math, array_of_numbers);
+
+// Пример использования метода bind()
+function f(у) {
+  return this.x + у;
+} // Функция, которую требуется привязать
+var о = { х: 1 }; // Объект, к которому выполняется привязка
+var g = f.bind(o); // Вызов g(х) вызовет o.f(x) g(2) // => 3
+
+// Метод bind() для ECMAScript 3
+if (!Function.prototype.bind) {
+  Function.prototype.bind = function(o) {
+    let self = this,
+      boundArgs = arguments;
+    return function() {
+      var args = [],
+        i;
+      for (i = 1; i < boundArgs.length; i++) args.push(boundArgs[i]);
+      for (i = 0; i < arguments.length; i++) args.push(arguments[i]);
+      return self.apply(o, args);
+    };
+  };
+}
+
+// Все функции в js имеют метод toString() 
+// они используются для переобразование в строку на выходе 
+
