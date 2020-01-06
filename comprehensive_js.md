@@ -50,7 +50,7 @@ function hypotenuse(a, b) {
 // - as constructors
 // - indirectly, using their methods call() and apply()
 
-// this
+## this
 // this – is a keyword, not a variable or property name.
 let o = {
   m: function() {
@@ -66,3 +66,32 @@ let o = {
 
 // Вызов конструктотра, обозначает ключ. с.  new
 let o = new Object; // === let o = new Object;
+
+## undeclared, undefined, null 
+```js 
+const bar = foo + 1;
+// error foo is not defined, but it also named - undeclared 
+```
+
+```js
+let b; 
+typeof b; // undefined 
+b === undefined; //=> true
+```
+
+```js 
+let n = null;
+typeof n; //=> object
+null == n; //=> true
+null == undefined; //=> true
+
+(null===null) // true
+(null===undefined) // false
+
+// The value null is the only falsy value with the typeof "object":
+console.log(typeof null === "object" && !null) // true
+console.log(typeof {} === "object" && !{}) // false
+
+// This can be used to create a simple isNull() function:
+const isNull = (value) => typeof value === "object" && !value
+console.log(isNull(null)) // true
