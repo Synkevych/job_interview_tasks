@@ -1,14 +1,22 @@
 ## find – return value found or undefined if not found 
 
-### findIndex - return index of found value or -1
+1. findIndex - return index of found value or -1
 
-### includes – return a boolean if a value is in a string 
+2. includes – return a boolean if a value is in a string 
 
-### Number.isFinite handling NaN
+3. Number.isFinite handling NaN
 
-### Object.assign create copies of objects without the same reference !!Not a deep clone
+4. Object.assign create copies of objects without the same reference !!Not a deep clone
 
-### Array.from – convert other data types into array if posible
+5. The ES6 function *Object.is()*
+```js 
+let maybeNull = null;
+// The following is equivalent to maybeNull == null or maybeNull == undefined:
+
+console.log(Object.is(maybeNull,undefined) || Object.is(maybeNull,null)) // true
+```
+
+6.  Array.from – convert other data types into array if posible
 ```js 
 let firstSet = new Set([1,2,3,45,12,3,4,1,,1,2,]);
 let arrayFromSet = Array.from(firstSet);
