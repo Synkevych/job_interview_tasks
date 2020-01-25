@@ -113,6 +113,132 @@ if (!Function.prototype.bind) {
   };
 }
 
-// Все функции в js имеют метод toString() 
-// они используются для переобразование в строку на выходе 
+// Все функции в js имеют метод toString()
+// они используются для переобразование в строку на выходе
 
+// Функции высшего порядка
+function not(f) {
+  return function() {
+    var result = f.apply(this, arguments);
+    return !result;
+  };
+}
+
+var even = function(x) {
+  return x % 2 === 0;
+};
+
+var odd = not(even);
+
+[1, 1, 3, 5, 5].every(odd); // => true
+
+// Мемоизация - кеширование результата
+function memoize(f) {
+  let chache = {};
+  return function() {
+    let key = arguments.length + Array.prototype.join.call(arguments, ',');
+    if (key in chache) return chache[key];
+    else return (chache[key] = f.apply(this, arguments));
+  };
+}
+
+function gcb(a, b) {
+  let t;
+  if (a < b) (t = b), (b = a), (a = t);
+  while (b != 0) (t = b), (b = a % b), (a = t);
+  return a;
+}
+gcb(85, 187);
+
+// Перечесление игральных карт в виде типов-перечислений
+function Card(suit, rank) {
+  this.suit = suit;
+  this.rank = rank;
+}
+Card.Suit = enumarations({ Clubs: 1, Diamonds: 2, Hearts: 3, Spades: 4 });
+Card.Rank = enumaration({
+  Two: 2,
+  Three: 3,
+  Four: 4,
+  Five: 5,
+  Six: 6,
+  Seven: 7
+});
+Card.prototype.toString = function() {
+  return this.rank.toString() + ' ' + this.suit.toString();
+};
+Card.prototype.compareTo = function(that) {
+  if (this.rank < that.rank) return -1;
+  if (this.rank > that.rank) return 1;
+  return 0;
+};
+
+Card.orderByRank = function(a, b) {
+  return a.compareTo(b);
+};
+
+Card.orderBySuit = function(a, b) {
+  if (a.suit < b.suit) return -1;
+  if (a.rank > b.suit) return 1;
+  if (a.rank < b.rank) return -1;
+  if (a.rank > b.rank) return 1;
+  return 0;
+};
+
+// Собственный метод сравнения
+Range.prototype.constructor = Range;
+Range.prototype.equals = function(that) {
+  if (that == null) return false;
+  if (that.constructor !== Range) return false;
+  return this.from == that.from && this.to == that.to;
+};
+
+//Создание собственных членов (private)
+function Range(from, to) {
+  // не сохраняет границы в свойства объекта. Вместо этого определяет функции доступа возв. значение границ
+  this.from = function() {
+    return from;
+  };
+  this.to = function() {
+    return to;
+  }; // сами значения хранятся в замыкании
+}
+
+Range.prototype = {
+  constructor: Range,
+  includes: function(x) {
+    return this.from() <= x && x <= this.to();
+  },
+  foreach: function(f) {
+    for (let x = Math.ceil(this.from()), max = this.to(); x <= max; x++) f(x);
+  },
+  toString: function() {
+    return '(' + this.from() + '...' + this.to() + ')';
+  }
+};
+
+let r = new Range(1, 5); //неизменяемый диапазон
+r.from = function() {
+  return 0; // заменяем метод 
+};
+
+// определение перечисляемых свойсв 
+(funciton() {
+  Object.defineProperty(Object.prototype, "objectId",{
+    get: idGetter,
+    enumerable: false, // неперечисляемое
+    configurable: false // не может быть удалено
+  });
+  function idGetter(){
+    if(!(idprop in this)){
+      if(!Object.isExtensible(this)) throw Error("id enumerable options can't be defined")
+      Object.defineProperty( this, idprop, { 
+        value: nextid++,
+        writable: false,
+        enumerable: false,
+        configurable: false,
+      });
+    }
+    return this[idprop];
+  }
+})
