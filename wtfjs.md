@@ -43,7 +43,7 @@ Object.prototype.foo = 10;
 ###  1.7976931348623157e+308 === 1.7976931348623158e+308 // true 
 
 ### concat fun
- "222" - -"111" -> 333 
+ "222" - -"111" -> 333 // now fixed
 
  ### coerced -  number type coercion
  ```js 
@@ -71,14 +71,15 @@ a = 012 	// 10
 
 ### get date return the day of the month 
 ```js 
-    var date = new Date('Tue Apr 01 2014')
+    var date = new Date('Tue Apr 01 2014');
     date            // Tue Apr 01 2014 00:00:00 GMT+0200
-    date.getDate()  // 1
+    date.getDate()  // 1 true day 
+    date.getDay()   // 2 day of week 
     date.getMonth() // 3
 ```
 ### multiply one element 
 ```js 
-console.log([4] + [4]); // 16
+console.log([4] + [4]); // "44"
 console.log([4] - [4]); // 0 
-console.log([4] + [4]); //44
+console.log([4] * [4]); //16
 console.log([4, 4] * [4, 4]); // NaN
