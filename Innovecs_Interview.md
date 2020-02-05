@@ -1,4 +1,4 @@
-### 1 write a function which return reverting strinng 
+### Write a function which return reverting string 
 Input:"Hello Coder"
 Output: "redoC olleH"
 ```javascript
@@ -25,7 +25,7 @@ function returnString(str){
 	return str.split('').reverse().join('');
 }
 ```
-### converting a time
+### Converting a time
 Input:"126"
 Output:"2:6"
 
@@ -57,7 +57,7 @@ function getTime(str) {
 
 console.log(getTime(163));
 ```
-### check the correct expression or not
+### Check the expression, they're correct or not
 Input:"++b+==4++v-"
 Output:true
 
