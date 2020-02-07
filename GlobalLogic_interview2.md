@@ -299,7 +299,7 @@ https://codepen.io/sunkevu4/full/dybgvRg
 
 ### seven(plus(one())) -> 8. five(minus(two())) -> 3
 
-Используется композиция функций 
+Используется композиция функций
 ```js
 const one = arg => 1 + (arg || 0);
 const plus = (arg) => arg
@@ -462,3 +462,6 @@ for (let i = 0; i < arr.length; i++) {
 ```
 
 ### поиск максимального числа в масиве
+'''js
+let mass = [1,11,4,100,500,132,2];
+let max = Math.max(mass)
