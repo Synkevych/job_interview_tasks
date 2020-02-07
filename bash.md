@@ -21,4 +21,6 @@ di -sh ~
 ls -a - see hidden files 
 rm -R foldername - delete folder and include files 
 ps aux | grep JRodos
-rm -dr /path-file - remove directory and all files 
+rm -dr /path-file - remove directory and all files
+
+echo "Text for new file" > my_file.txt
