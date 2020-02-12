@@ -252,9 +252,18 @@ Object.defineProperty(profile, 'age', {
    value: 3,
    writable: false
 }); // => dont allow to change the value 
-```
+```js
 
 # What the result ? 
 
-```js 
+``` 
 console.log(Math.max()); // => -Ifinity - the smalest number 
+
+# Operator typeof at ES6 work oddly
+```js
+type of null; // object
+
+type of x; //=> there is an error !
+let x = 100;
+
+``` 
