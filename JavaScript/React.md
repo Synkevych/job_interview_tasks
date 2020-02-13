@@ -1,5 +1,5 @@
 
-### React Lifecle Methods (React v.16.9.0) 
+## React Lifecle Methods (React v.16.9.0) 
 
 ### Mounting 
 - constructor()
@@ -13,12 +13,12 @@
 
 ### Updating
 - static getDerivedStateFromProps()
-- dep: ComponentWillReceiveProps(nextProps)
-- shouldComponentUpdate(nextProps, nextState)
-- dep: componentWillUpdate(nextProps, nextState)
+- dep:   ComponentWillReceiveProps( nextProps )
+- shouldComponentUpdate( nextProps, nextState )
+- dep:   componentWillUpdate( nextProps, nextState )
 - render()
 - getSnapshotBeforeUpdate()
-- componentDidUpdate(prevProps, prevState)
+- componentDidUpdate( prevProps, prevState )
 
 ### Error handling
 - static getDerivedStateFromError()
@@ -39,3 +39,8 @@ forceUpdate()
 - state - тоже желательно не изменять, а только дополнять, если Реак замечает изменяние в state
 	будет перерендерина страница
 Упавляется внутри компонента, инициализируеться в первую очередь - в конструкторе
+
+# React Hooks
+
+# React HOC (Higher Order Component)
+Компонент вышего порядка

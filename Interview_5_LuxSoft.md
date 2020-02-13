@@ -35,9 +35,14 @@
 Несколько разных методов как поставить елемент в центр, их плюсы и минусы
 Вопросы по flex-box
 
-# 3 CORS – Cros Origin Resourse Sharing (кросдоменные запросы)
-Испльзуется для подключения к не родному домену. 
-Для этого в заголовок XmlHttlRequest добавляется заголовок AccesCotrol-Allow-Origin 
+# 3 CORS – Cross Origin Resourse Sharing (кросдоменные запросы)
+Механизм, использующий дополнительные HTTP-заголовки, чтобы дать возможность агенту пользователя получать разрешение на доступ
+к выбраным ресурсам на домене, отличном от того что использует сайт в данный момент.
+Блаузеры в целях безопасности ограничивают cros-origin запросы, инициируемые скриптами. 
+
+Современные браузеры используетю CORS в API-контейнерах таких как XMLHtttpRequest && Fetch.
+
+Для этого в заголовок XmlHttlRequest добавляется заголовок AccesCotrol-Allow-Origin.
 
 # 4 Архитектура REST - Representational State Transfer — «передача состояния представления»
 Это не стандарт а **рекомендация** как можно создавать веб приложения, способ взаимодействия клиента и сервера.  
@@ -265,5 +270,60 @@ type of null; // object
 
 type of x; //=> there is an error !
 let x = 100;
+```
 
-``` 
+# What the result of function execution?
+```js 
+var value = 0;
+
+function f() {
+  if (1) {
+    value = true;     //=> change global value
+  } else {
+    var value = false;  //=> this code will not be executed 
+  }
+
+  alert( value );
+}
+
+f();      //=> true 
+```
+
+# What is Coercion in JavaScript? 
+In JS conversion between different two build-in types called coercion. Coersion comes in two forms in JS: explicit and implicit.
+```js 
+let a = Number( "42" ); // explicit coercion 
+let b = "42" * 2; // implicit coerced
+```
+
+# What is Scope in JS ?
+In JavaScript, each function gets its own scope. Scope is basically a collection of variables as well as the rules for how those variables are accessed by name. Only code inside that function can access that function's scoped variables.
+
+A variable name has to be unique within the same scope. A scope can be nested inside another scope. If one scope is nested inside another, code inside the innermost scope can access variables from either scope.
+
+# What is closure in JS? 
+A closure is a function defined inside another function (called parent function) and has access to the variable which is declared and defined in parent function scope.
+
+The closure has access to variable in three scopes:
+
+Variable declared in his own scope
+Variable declared in parent function scope
+Variable declared in global namespace
+
+# The Prototype Design Pattern 
+The Prototype Pattern creates new objects, but rather than creating non-initialized objects it returns objects that are initialized with values it copied from a prototype - or sample - object. The Prototype pattern is also referred to as the Properties pattern.
+
+An example of where the Prototype pattern is useful is the initialization of business objects with values that match the default values in the database. The prototype object holds the default values that are copied over into a newly created business object.
+
+Classical languages rarely use the Prototype pattern, but JavaScript being a prototypal language uses this pattern in the construction of new objects and their prototypes
+
+# What is npm?
+npm stands for Node PAckage Manager
+
+# SOLID принцип ООП 
+Рекоменации для принципов постройки модулей. 
+Single Responsibility 
+Open-Closed 
+Liskov Substitution 
+Interface segregation 
+Dependency inversion 
