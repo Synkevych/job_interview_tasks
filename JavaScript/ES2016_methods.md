@@ -61,11 +61,14 @@ class User{
 ### REST and Spred
 let student = {first: "Roman", last:"Synkevych", age: 20, }
 
-**REST** - gathered remaining of keys and values in an object 
+**REST** - gathered remaining of keys and values in an object
+Used before **=**
 ```js
-let { first, last ...data } = student; ```
+let { first, last ...data } = student; 
+```
 
 **Spread** our keys and values from one obj to another 
+Used after **=**
 ```js
 let student2 = {...student, first:"Bohdsn", last:"Masluk"}; ```
 

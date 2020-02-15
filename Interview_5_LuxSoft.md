@@ -326,4 +326,50 @@ Single Responsibility
 Open-Closed 
 Liskov Substitution 
 Interface segregation 
-Dependency inversion 
+Dependency inversion
+
+# Connect together two array to object
+```js 
+const items = ["RAM", "ROM"];
+const prices = [10.5, 5.5];
+
+const cart = items.map((x, i) => ({name: x, price: prices[i]}));
+// [{name: "RAM", price: 10.5}, {...}]
+```
+
+# Create a deck of cards and then sort them view all with value of 3
+```js 
+for (let suit of ['Ч','П','Б','Х'])
+for (let value = 1; value<13; value++) 
+cards.push({suit, value})
+
+cards.filter( c => c.value ===3 )
+```
+
+# Use reduce to sum the value inside array
+```js 
+const arr = [ 1, 22, 3, 10, -1];
+
+const sum = arr.reduce((a,e) => a += e, 0); // here 0 is first value for a, default - undefined
+```
+
+# Use Object.keys instead for...in to show all attribute 
+```js
+const o = {a:1, b:2, c:3, d:4};
+Object.keys(o).forEach(prop=> console.log(`${prop}: ${o[prop]}`));
+```
+
+# Fobonachi numbers 
+```js 
+function fib(n){
+    let res= [];
+    if(n <=0 ) return 0;
+    for(let j=0; j<=n-1; j++){
+        if(j <= 1 ) res[j]=1;
+        else{
+        res[j] = res[j-1] + res[j-2];
+        }
+    }
+    return res[res.length-1];
+}
+```

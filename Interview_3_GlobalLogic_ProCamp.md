@@ -24,6 +24,9 @@ let res = [...arr, ...arr2].reduce(function(acc, el, i, arr) {
 	return acc;	// [2, 3]
 }, []);
 
+// remove duplicate from array  
+let deletedDuplicate = [...new Set([..arr, ...arr2])]
+
 ```
 ### 2 Create new object using method reduce
 Input: [{a:1}, {a:2}, {a:3}]

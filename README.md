@@ -1,4 +1,4 @@
-# job_interview_tasks
+# Job Interview Tasks – Front-End Developer
 Задание которые мне встречались на интервью, позиция Junior Front-End Developer
 
 ## Задания git
