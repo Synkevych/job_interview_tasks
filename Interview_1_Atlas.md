@@ -1,7 +1,6 @@
 ### How does JavaScript even work ? 
-A single-threaded non-blocking asynchronous concurrent language 
-Have a call stack and event loop. a callback queue some other apis and stuff
-v8 have call stack and a heap[куча]
+A single-threaded, non-blocking, asynchronous, concurrent language, 
+have a call stack and event loop, callback queue some other apis and stuff.
 
 >**class:** создание нового класса/модели.  
 >**method:** функция внутри класса.  
