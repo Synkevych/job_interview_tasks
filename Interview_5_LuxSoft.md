@@ -373,3 +373,26 @@ function fib(n){
     return res[res.length-1];
 }
 ```
+# How prototyte works in JS 
+```js 
+function User(){};
+User.prototype = { admin: false };
+User.prototype.nextId = 0;
+User.prototype.getId = function() { return User.nextId++;}
+
+let user = new User();
+
+User.prototype.setTime = function(name){ Card.name = name; return name };
+// we add new method to User and they cchidren user
+
+User.prototype = { admin: true };
+// we rewrite the all User method ! 
+
+let user2 = new User();
+// now user2 have only 1 method
+console.log(user); // all old User method nextId, getId
+console.log(user.admin)    //=> false 
+/* there we reassignments all methods inside User
+*/
+
+```
