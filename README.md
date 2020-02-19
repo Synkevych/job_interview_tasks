@@ -1,5 +1,5 @@
 # Job Interview Tasks – Front-End Developer
-Задание которые мне встречались на интервью, позиция Junior Front-End Developer
+Задания которые мне встречались на интервью, позиция Junior Web Developer
 
 ## Задания git
 https://github.com/Synkevych/job_interview_tasks/blob/master/git.md
