@@ -183,14 +183,15 @@ obj[a] = 123;
 obj[b] = 456;
 
 console.log(obj);
+```
 
-# Remove duplicate in aray 
+## Remove duplicate in aray 
 ```js 
 let nums = [1, 2, 2, 4];
 let newNums = [...new Set(nums)]; //=> [1, 2, 3]
 ```
 
-# Change the logic prevent global scoping
+## Change the logic prevent global scoping
 ```js 
 let func = function () {
 
@@ -211,14 +212,14 @@ func();
 })();
 ```
 
-# Wha the answer is ? 
+## Wha the answer is ? 
 There is Automatic Type Conversion working 
 ```js 
 console.log( 5 < 6 < 7);   // => true < 7 => 1 < 7 => true 
 console.log( 7 > 6 > 5);   // => true > 5 => 1 >  => false
 ```
 
-# What would be the resut of function ?
+## What would be the resut of function ?
 
 ```js 
 let a = () => arguments;
@@ -230,7 +231,7 @@ let a = (...args) => args;
 console.log( a('hi') ); // => "hi"
 ```
 
-# Auto comliting semicolon 
+## Auto comliting semicolon 
 ``` let x = function(){
    return          // => return ;
    {
@@ -240,7 +241,7 @@ console.log( a('hi') ); // => "hi"
 console.log(x());
 ```
 
-# Dont allow user change the profile
+## Don't allow user change the profile
 ```js 
 let profile = {
    name: 'Roman'
@@ -257,14 +258,15 @@ Object.defineProperty(profile, 'age', {
    value: 3,
    writable: false
 }); // => dont allow to change the value 
+```
+
+## What the result ? 
+
 ```js
-
-# What the result ? 
-
-``` 
 console.log(Math.max()); // => -Ifinity - the smalest number 
+``` 
 
-# Operator typeof at ES6 work oddly
+## Operator typeof at ES6 work oddly
 ```js
 type of null; // object
 
@@ -272,7 +274,7 @@ type of x; //=> there is an error !
 let x = 100;
 ```
 
-# What the result of function execution?
+## What the result of function execution?
 ```js 
 var value = 0;
 
@@ -289,19 +291,19 @@ function f() {
 f();      //=> true 
 ```
 
-# What is Coercion in JavaScript? 
+## What is Coercion in JavaScript? 
 In JS conversion between different two build-in types called coercion. Coersion comes in two forms in JS: explicit and implicit.
 ```js 
 let a = Number( "42" ); // explicit coercion 
 let b = "42" * 2; // implicit coerced
 ```
 
-# What is Scope in JS ?
+## What is Scope in JS ?
 In JavaScript, each function gets its own scope. Scope is basically a collection of variables as well as the rules for how those variables are accessed by name. Only code inside that function can access that function's scoped variables.
 
 A variable name has to be unique within the same scope. A scope can be nested inside another scope. If one scope is nested inside another, code inside the innermost scope can access variables from either scope.
 
-# What is closure in JS? 
+## What is closure in JS? 
 A closure is a function defined inside another function (called parent function) and has access to the variable which is declared and defined in parent function scope.
 
 The closure has access to variable in three scopes:
@@ -310,17 +312,17 @@ Variable declared in his own scope
 Variable declared in parent function scope
 Variable declared in global namespace
 
-# The Prototype Design Pattern 
+## The Prototype Design Pattern 
 The Prototype Pattern creates new objects, but rather than creating non-initialized objects it returns objects that are initialized with values it copied from a prototype - or sample - object. The Prototype pattern is also referred to as the Properties pattern.
 
 An example of where the Prototype pattern is useful is the initialization of business objects with values that match the default values in the database. The prototype object holds the default values that are copied over into a newly created business object.
 
 Classical languages rarely use the Prototype pattern, but JavaScript being a prototypal language uses this pattern in the construction of new objects and their prototypes
 
-# What is npm?
+## What is npm?
 npm stands for Node PAckage Manager
 
-# SOLID принцип ООП 
+## SOLID принцип ООП 
 Рекоменации для принципов постройки модулей. 
 Single Responsibility 
 Open-Closed 
@@ -328,7 +330,7 @@ Liskov Substitution
 Interface segregation 
 Dependency inversion
 
-# Connect together two array to object
+## Connect together two array to object
 ```js 
 const items = ["RAM", "ROM"];
 const prices = [10.5, 5.5];
@@ -337,7 +339,7 @@ const cart = items.map((x, i) => ({name: x, price: prices[i]}));
 // [{name: "RAM", price: 10.5}, {...}]
 ```
 
-# Create a deck of cards and then sort them view all with value of 3
+## Create a deck of cards and then sort them view all with value of 3
 ```js 
 for (let suit of ['Ч','П','Б','Х'])
 for (let value = 1; value<13; value++) 
@@ -346,20 +348,20 @@ cards.push({suit, value})
 cards.filter( c => c.value ===3 )
 ```
 
-# Use reduce to sum the value inside array
+## Use reduce to sum the value inside array
 ```js 
 const arr = [ 1, 22, 3, 10, -1];
 
 const sum = arr.reduce((a,e) => a += e, 0); // here 0 is first value for a, default - undefined
 ```
 
-# Use Object.keys instead for...in to show all attribute 
+## Use Object.keys instead for...in to show all attribute 
 ```js
 const o = {a:1, b:2, c:3, d:4};
 Object.keys(o).forEach(prop=> console.log(`${prop}: ${o[prop]}`));
 ```
 
-# Fobonachi numbers 
+# Fibonachi numbers 
 ```js 
 function fib(n){
     let res= [];
@@ -373,7 +375,7 @@ function fib(n){
     return res[res.length-1];
 }
 ```
-# How prototyte works in JS 
+## How prototyte works in JS 
 ```js 
 function User(){};
 User.prototype = { admin: false };
@@ -394,5 +396,24 @@ console.log(user); // all old User method nextId, getId
 console.log(user.admin)    //=> false 
 /* there we reassignments all methods inside User
 */
+```
 
+## Recursion in JavaScript
+```js
+// => 1
+function fact(n){
+   if (x < 0) return;
+   if(n === 1) return 1;
+   return n * fact(n-1);
+}
+
+// => 2
+function revStr(str){
+   if(typeof str !== "string") return "Arguments need to be a string!";
+   if (str === '') return '';
+   return revStr(str.substr(1)) + str[0]
+}
+// здесь работает накопление результата
+// пока str не станет равным 0 мы будем накапливать результат 
+// отнимать одну букву с аргумента функции 
 ```
