@@ -1,9 +1,11 @@
-# Java is 
+# What ? Java inside the Fron-End part ? 
+
+## In some projects, the server part is made in Java, therefore this repository has this file with basic explanations of the Java language.
 
 ## Аплеты 
-Это программа Java работающая под управлением Web-браузера. Основная проблема – раазные браузеры подддерживаают разные версии языка Java. 
+Это программа Java работающая под управлением Web-браузера. Основная проблема – разные браузеры подддерживают разные версии языка Java. 
 
-Java стала популярным языком для разработки приложений серверной стороны, которые генерируют Web-страницы и поддеррживвают логику заднего плана.
+Java стала популярным языком для разработки приложений серверной стороны, которые генерируют Web-страницы и подерживают логику заднего плана.
 
 Промежуточный код который генерирует JVM можно выполнять н любой машине имеющий соответствующий интерпретатор. 
 
@@ -121,3 +123,15 @@ String message = "This is string" + "!";
 ```
 **Parameters** are the holes that we define in our methods; 
 **Arguments** are the actual value that we pass to these methods 
+
+
+# What word *Thread* mean ? 
+```java
+Thread t = new Tread(new ParseFiles(dialog, files));
+t.start();
+``` 
+
+#What arrow <> brackets mean ? 
+```java 
+ final List<ProjectInfo> allProjects = ClientApplication.getInstance().getProjectStored(false);
+``` 
