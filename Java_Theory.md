@@ -105,8 +105,11 @@ public class Main {
 		Date now = new Date();
 		now.getTime();
 		Point newPoint = new Point(1, 2);
-		Point point2 = newPoint; // here we copy reference to an object in memory 
+		Point point2 = newPoint; // here we copy reference to an object in memory
+		// a single dimensional array  
 		int[] numbers = new int[5];
+		// multi-dimensional arrays
+		int[][] = { {1,2,3}, {4,5}}
 
 		// to print array use Array method 
 		System.out.println(Arrays.toString(numbers))
@@ -131,7 +134,38 @@ Thread t = new Tread(new ParseFiles(dialog, files));
 t.start();
 ``` 
 
-#What arrow <> brackets mean ? 
+# What arrow <> brackets mean ? 
 ```java 
  final List<ProjectInfo> allProjects = ClientApplication.getInstance().getProjectStored(false);
 ``` 
+
+# What means public <abstract> class ?
+
+# Implicit casting || automatic converting 
+```java
+public class Main { 
+	public static void main(String[] args){
+		//Implicit casting [неявное преобразование типа]
+		// byte > short > int > long > float > double 
+		short x = 1;
+		int y = x + 2;
+
+		// whe way of creating constant
+		final float PI = 3.14F;
+		System.out.println(result);
+		String x = "1";
+		int y = Integer.parseInt(x) + 2;
+		String x2 = "1.2";
+		Double.parseDouble(x)
+	}
+}
+``` 
+## The Math class  > java.lang package
+
+## NumberFormat factory method to Number format curency 
+```js 
+NumberFormat  currency = NumberFormat.getCurrencyInstance();
+String result currency.format(123441.896);
+//cheaning method together
+String result = NumberFormat.getPercentInstatnce().format(0.1)
+```
