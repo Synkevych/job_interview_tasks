@@ -244,13 +244,13 @@ Number.prototype.plus = function (value) {
 // Number.prototype.plus = (a) => this+b; работать не будет у него нет доступа к this!
 ```
 
-### Do not use arguments inside =()=>
+### Don't use an arguments variable inside ()=>{}
 - input: '*', '1', 'b', '1c'
-- outpu: '1*b*1c'
+- output: '1\*b \*1c'
 
 ```js
  //new & short way 
-const getStr = (joiner, ...rest) => [].slice.call(arguments, 1).join(arguments[0]);
+const getStr = (...args) => [].slice.call(args, 1).join(args[0]);
 getStr( '*', '1', 'b', '1c' ) // '1*b*1c'
 
 // better 
@@ -279,7 +279,7 @@ var tree1 = { valueNode: 1, next: [ { valueNode: 3, next: null	}, ... ] }
 console.log(getSum(tree1)); //sum =3 
 ```
 ### JavaScript Async 
-Минимальное время которое можно задать зависит от движка браузера
+Минимальное время которое можно задать *setTimeout()* зависит от движка браузера
 ```js
 console.log(1);
 setTimeout(function() {
@@ -293,16 +293,16 @@ console.log(3);
 // 2 
 ```
 ### Есть div, в нем другой div, у второго задан padding 50%, как это все будет выглядеть?
-Браузер автоматически определит размер ширины, если в родительском блоке есть задана **width**,
-padding бедет равен половине этого значения. Тоэстьт эот будет куб. 
+Браузер автоматически определит размер ширины, если в родительском блоке задана **width**,
+padding бедет равен половине этого значения. Тоесть это будет куб. 
 https://codepen.io/sunkevu4/full/dybgvRg
 
-### seven(plus(one())) -> 8. five(minus(two())) -> 3
+### seven(plus(one())) => 8. five(minus(two())) => 3
 
 Используется композиция функций
 ```js
 const one = arg => 1 + (arg || 0);
-const plus = (arg) => arg
+const plus = (arg) => arg;
 const seven = arg => 7 + arg; 
 ```
 ### Напишите код, который при клике на любой div внутри root будет выводить в консоль его id.
@@ -328,7 +328,7 @@ let obj = {};
 }
 ```
 
-### what the return ?
+### What is the return ?
 ```js
 var i = 10;
 var array = [];
@@ -348,8 +348,9 @@ console.log([array[0](), array[1]()]);
 
 ### вывести в консоль значение используя все известные способы
 ```js 
+var obj = {x: 'bar'};git gtiii
 function f() { console.log(this.x); }
-var obj = {x: 'bar'};
+// expected result "bar" 
 
 f.call(obj, a, b);
 f.apply(obj, [a, b]);
