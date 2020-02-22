@@ -212,11 +212,13 @@ func();
 })();
 ```
 
-## Wha the answer is ? 
+## What the answer is ? 
 There is Automatic Type Conversion working 
 ```js 
+// operators AND || OR do not change the value and return the passed value 
+// but < or > orerator do! they return true||false
 console.log( 5 < 6 < 7);   // => true < 7 => 1 < 7 => true 
-console.log( 7 > 6 > 5);   // => true > 5 => 1 >  => false
+console.log( 7 > 6 > 5);   // => true > 5 => 1 > 5 => false
 ```
 
 ## What would be the resut of function ?
