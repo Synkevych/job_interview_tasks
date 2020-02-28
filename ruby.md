@@ -1,3 +1,11 @@
+## Data type 
+
+- Booleans
+- Symbols
+- Numbers
+- Strings
+- Arrays
+- Hashes
 
 nil value = null on JavaScript 
 nil => false
