@@ -13,10 +13,10 @@ function changeA2(o) {
 	return o;
 }
 
-console.log(changeA(a));
-console.log("a",a);
-console.log(changeA2(a));
-console.log("a",a);
+console.log(changeA(a)); //=> {b:10}
+console.log("a",a); 	// => {b:10}
+console.log(changeA2(a)); // => {b:12}
+console.log("a",a);		// => {b:10}
 ```
 
 ### closure 
@@ -451,7 +451,8 @@ for (var i = 0; i < arr.length; i++) {
   }(i), 3000);
 }
 
-// рабочий ваариант 2 
+// рабочий вариант 2
+
 const arr = [10, 12, 15, 21];
 for (let i = 0; i < arr.length; i++) {
   // использование ключевого слова let, которое появилось в ES6,
@@ -462,7 +463,115 @@ for (let i = 0; i < arr.length; i++) {
 }
 ```
 
-### поиск максимального числа в масиве
-'''js
+### Поиск максимального числа в масиве
+```js
 let mass = [1,11,4,100,500,132,2];
-let max = Math.max(mass)
+let max = Math.max(...mass)
+```
+
+## Детруктуризация может использоваться для строк
+
+```js
+let str = "Hello world, I'm here";
+let string_array = [...str];
+```
+
+## Замыкание не срабатывает через Function Declaration
+Если определить переменную с таким же именем как у функции  
+то определение функции удалит из памяти саму переменную,  
+даже если она определена после *return*;
+
+```js
+let foo = 1;
+function bar() {
+	foo = 10;
+	return;
+	function foo() {}
+}
+bar();
+console.log(foo);
+```
+
+## Another dirty example
+
+```js 
+function bar() {
+    return foo;
+    foo = 10;
+    function foo() {}
+    var foo = 11;
+}
+alert(typeof bar()); //=> first undefined - then function 
+
+/* another example
+*  shows the closure when creating a new object
+*/
+var x = 3;
+
+var foo = {
+    x: 2,
+    baz: {
+        x: 1,
+        bar: function() {
+            return this.x;
+        }
+    }
+}
+
+var go = foo.baz.bar;
+
+alert(go()); //3 this new instance we do not have another value - just code of function bar 
+alert(foo.baz.bar()); // 1 the first x inside parent 
+
+// v3 
+
+var x   = 4,
+    obj = {
+        x: 3,
+        bar: function() {
+            var x = 2;
+            setTimeout(function() {
+                var x = 1;
+                alert(this.x);
+            }, 1000);
+        }
+    };
+obj.bar(); //4 
+
+//v4 
+
+function bar() {
+    this.x = 2;
+    return x;
+}
+var foo = new bar();
+alert(foo.x); // closure work here - 2 
+```
+
+## Array in JS can have method inside 
+```js 
+var arr = [];
+arr[0]  = 'a';
+arr[1]  = 'b';
+arr.foo = 'c';
+alert(arr.length);
+```
+
+## We cant delete perent method like length
+- and this method present inside the object
+```js 
+function foo(){}
+delete foo.length;
+alert(typeof foo.length); // "number"
+```
+
+```js 
+var x = 0;
+function foo() {
+    x++;
+    this.x = x;
+    return foo;
+}
+var bar = new new foo;
+console.log(bar.x); //undefined
+```
