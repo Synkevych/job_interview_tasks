@@ -1,14 +1,12 @@
-#Ruby 
-Киллер фича Ruby на фоне другиг языков: Лучший друг програмиста.
-Лучший язык для начала в ИТ програмирования - английский.
-Джуниор: 
+#Ruby  
+Киллер фича Ruby на фоне другиг языков: Лучший друг програмиста.  
+Лучший язык для начала в ИТ програмирования - английский.  
+Джуниор:  
 Пройти курс онлайн или офлайн 
-Что происходит когда ты вводиш поисковый запрос
-Чем больше ты знаеш тем проще тебе решить проблему 
-Book: Язык програмирования Ruby, Ю. Мацумото
-Book: Ruby Under a Microscope 
-
-
+Что происходит когда ты вводиш поисковый запрос  
+Чем больше ты знаеш тем проще тебе решить проблему  
+Book: Язык програмирования Ruby, Ю. Мацумото  
+Book: Ruby Under a Microscope  
 
 ## Data type 
 
@@ -59,7 +57,9 @@ def print_plays(year_from, year_to)
 end
 print_plays(1600, 1615)
 ```
-How to use operator if
+
+## How to use operator if
+
 ```ruby
 if 1<2
 	puts "It is true!"
@@ -84,7 +84,7 @@ else
 end 
 ```
 
-Two methods
+## Two methods
 
 ```ruby
  def hungry?(time_of_day_in_hours)
@@ -102,6 +102,7 @@ eat_an 'carrot like rabbit ' if hungry?(10)
 ```
 
 ## Use Class on Ruby, :attr - atribute 
+
 ```ruby
 class Blurb 
   attr_accessor :content, :time, :mood
@@ -136,6 +137,7 @@ Blurb.new.time #=> return the new class and their time
 blurb2 = Blurb.new :confused, "I can't trust, that was a stolen" 
 ```
 ## Acessors vs Variables
+
 Снаружи класса мы используем аксессоры:
 
 blurb.time = Time.now
@@ -145,6 +147,7 @@ blurb.time = Time.now
 @time = Time.now
 
 ## New Full app on the Ruby 
+
 ```ruby 
 class Blurbalizer
   def initialize(title)
