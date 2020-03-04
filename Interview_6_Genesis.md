@@ -22,7 +22,7 @@
 
 10. What are the Amazone web services?
 
-11. What is middleware ?
+11. What is middleware in express?
 
 12. Two difference type in JS - how the pass they value(link, value)
 
@@ -30,7 +30,22 @@
 
 14. Index table in MongoDB
 
-15. 
+15. What difference betwen protorype and class in JS?
+
+16. Authentication Methods based on (Using JWT for API authentication).
+
+17. How data is parsed to the database (checking types and correctness of data)?  
+mongoose library 
+
+18. Do you know lodash library? What is it used for? Do you now the basics methods from it?
+
+19. Data normalithation 
+
+20. What do you know about Babel ?
+
+21. GraphQL and REST pros and cons 
+
+22. 
 
 ## English
 How mush experince do you have using English ?
