@@ -7,9 +7,12 @@ __Docker isn't a virtual machine - it is a configuration management tool.__
 
 4. What type of services provides Google?
 
-How to change to switch to superuser? 
+5. How to change to switch to superuser? 
 
-What layer of ISO provide Security protocol?  
+6. What layer of ISO provide Security protocol?  
 __6 Presentational__
 
-How to check the number of running containers? 
+7. How to check the number of running containers? 
+
+8. What the port used to default ?  
+__. В отличие от HTTP с TCP-портом 80, для HTTPS по умолчанию используется TCP-порт 443__  
