@@ -60,3 +60,6 @@ parseInt(1111,2) 	// 15
  (100-70) / 70 = 0.429
  
  Увеличилась на 43%.
+
+# Document flow 
+It's a the model by which elements are rendered by default in the CSS specifications  

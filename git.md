@@ -43,3 +43,7 @@ git stash apply – позволяет вернуться к припрятан�
 ```git
 git rm --cached README
 ```
+
+### Ten common git problems 
+
+(1) 

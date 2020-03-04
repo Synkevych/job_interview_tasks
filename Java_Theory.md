@@ -169,3 +169,174 @@ String result currency.format(123441.896);
 //cheaning method together
 String result = NumberFormat.getPercentInstatnce().format(0.1)
 ```
+
+## variable length arguments
+```java
+public class Program{ 
+
+public static void main (String args[]){
+	sum(1,2,3);
+	sum();
+	sum(5,6,7,8,9);
+}
+	static void sum(int ...nums){
+		// ... summarize that we can pass only one or more arguments 
+		int result = 0;
+		for(int n : nums)
+			result += n;
+		System.out.println(result);
+	}
+}
+```
+
+## operator // return // 
+```java
+ public static void main (String args[]){
+          
+        System.out.println(daytime(7));     // Good morning
+        System.out.println(daytime(13));    // Good after noon
+        System.out.println(daytime(18));    // Good evening
+        System.out.println(daytime(2));     // Good night
+    }
+    static String daytime(int hour){
+         
+        if (hour >24 || hour < 0)
+            return "Invalid data";
+			// not just returning a value but terminating the function
+        else if(hour > 21 || hour < 6)
+            return "Good night";
+        else if(hour >= 15)
+            return "Good evening";
+        else if(hour >= 11)
+            return "Good after noon";
+        else
+            return "Good morning";
+    }
+}
+```
+
+## Method overloading
+Определение нескольких методов с одним именем но разными типами / количеством параметров
+```java
+public class Program{
+      
+    public static void main(String[] args) {
+         
+        System.out.println(sum(2, 3));          // 5
+        System.out.println(sum(4.5, 3.2));      // 7.7
+        System.out.println(sum(4, 3, 7));       // 14
+    }
+    static int sum(int x, int y){
+             
+        return x + y;
+    }
+    static double sum(double x, double y){
+             
+        return x + y;
+    }
+    static int sum(int x, int y, int z){
+             
+        return x + y + z;
+    }
+}
+```
+
+## Рекурсивная функция 
+```java
+static int factorial(int x){
+	if (x <= 0) { return false; } 
+	if (x == 0 ) { return 0; }
+	if (x == 1){
+		return 1;
+	}
+	return x * factorial(x-1);
+}
+// or 
+ int result = 1;
+    for (int i = 1; i <= x; i++)
+    {
+        result *= i;
+    }
+    return  result;
+```
+
+## Override - переопределение, переписывание уже сущ. класса
+
+## Overload - перегрузка, переписывание класса с другим набором параметров/аргументов
+
+## try...catch...finally, можно определять несколько catch 
+```java 
+try{
+    int[] numbers = new int[3];
+    numbers[4]=45;
+    System.out.println(numbers[4]);
+}
+catch(Exception ex){
+     
+    ex.printStackTrace();
+}
+catch(NumberFormatException ex){
+             
+    System.out.println("Ошибка преобразования из строки в число");
+}
+System.out.println("Программа завершена");
+```
+
+## thorow - оператор, с которым мы сами можем создать исключение и вызвать его в процессе выполнения. 
+```java 
+if(x>= 30){
+	throw new Extenion ("Число х должно быть меньше 30");
+}
+catch (Exception ex){
+	System.out.println(ex.getMessage());
+}
+```
+## Классы это шаблон, например человек, реальный человке – экземпляр класса есть объектом даного класса. 
+```java 
+class Person{
+
+	// конструктор - спец. метод
+	String name;
+	int age;
+
+// можем также исп. инициализаторы
+// выполняются до конструктора, общий для всех констр. 
+{
+	name = "Undefined";
+	age = 18;
+}
+
+	Person(){ // определение новог. констр. без агрнументов
+		name = "Undefined";
+		age = 18;
+	}
+	Person(String n){
+		// можем использвать this
+		// this(name, 18);
+		name = n;
+		age = 18;
+	}
+	Person(String n, int a){
+		name = n;
+		age = a;
+	}
+	void displayInfo(){
+		System.out.printf("Name: %s \tAge: %d\n", name, age);
+	}
+}
+
+  public static void main(String[] args) {
+         Person tom = new Person(); // создание объекта, вызов конструктора без параметров
+		 tom.displayInfo();
+
+		 tom.name = "Tom";
+		 tom.age = 34;
+		 tom.displayInfo();
+
+		 Person bob = new Person("Bob"); // вызов констр. с 1 параметром
+		 bob.displayInfo();
+}
+```
+
+## В Java классы объединяються в пакеты 
+package название_пакета;
