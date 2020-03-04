@@ -1,5 +1,16 @@
 1. How to cheek which user in the system is logged in?
 
+```shell 
+echo "$USER"
+
+# or 
+whoami
+
+#or 
+id -u
+
+```
+
 2. Does Docker like a virtual machine?  
 __Docker isn't a virtual machine - it is a configuration management tool.__
 
