@@ -48,12 +48,16 @@ mongoose library
 22. 
 
 ## English
-How mush experince do you have using English ?
-Which technologies did you use in your projects?
-How did you continue learning english ? (Reading books, attending courses or something else)
-How long have you been in using Node.js 
-How you use English in you workflow ? 
-How oftn do you use inglish in your work? 
-
+- What is your real level of English?  
+*I think you just got here to check it out. Let's check it out now.* 
+- How do you use English in your daily life? 
+*I try to read english books, watch movie with original sountrack, write daily schedule in this language, listen to technical podcasts*  
+- How mush experince do you have using English ?  
+- Which technologies did you use in your projects?  
+- How did you continue learning english ? (Reading books, attending courses or something else)  
+- How long have you been in using Node.js  
+- How you use English in you workflow ?   
+- How often do you use inglish in your work? 
+* The last project was lasted about 3 months and we talked through mail. 
 
 
