@@ -1,3 +1,13 @@
+## Message Type: The type is contained within the title and can be one of these types:
+
+**feat**: a new feature
+**fix**: a bug fix
+**docs**: changes to documentation
+**style**: formatting, missing semi colons, etc; no code change
+**refactor**: refactoring production code
+**test**: adding tests, refactoring test; no production code change
+**chore**: updating build tasks, package manager configs, etc; no production code change
+
 ### 1 Работа с ошибками git
 1 В ветке v1 обнаружилась ошибка, через это мы не можем вернуть наши изменения из v2 в master,
 что нужно сделать чтобы исправить проблемы с веткой v1?
@@ -46,4 +56,11 @@ git rm --cached README
 
 ### Ten common git problems 
 
-(1) 
+(1) How to rename files correctly
+```bash
+git mv old new # automatically updates the index
+```
+
+_mv old new_ then _git add -A_ would have worked, too.
+_git commit --dry-run -a_ shows two different results where
+git commit --dry-run -a shows two different results where
