@@ -75,7 +75,7 @@ mongoose library
 
 21. GraphQL and REST pros and cons 
 
-22. 
+22. What is WebSocket is what it is better than HTTP?
 
 ## English
 - What is your real level of English?  
