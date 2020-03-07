@@ -14,9 +14,26 @@
 
 6. Nested rountes innside Express
 
-7. What is routes ?
+7. What is routes ?  
+Маршрутизация определяет, как приложение отвечает на клиентский запрос к конкретному адресу (URI).
+Для обработки запроса можно указать несколько функций обратного вызова, подобных middleware.
+```js
+var express = require('express');
+var app = express();
 
-8. Difference betwine SQL and noSQL database
+// respond with "hello world" when a GET request is made to the homepage
+app.get('/', function(req, res) {
+  res.send('hello world');
+});
+```
+8. Difference betwine SQL and noSQL database  
+| Type | SQL | NoSQL |  
+| --- | --- | --- |  
+| Management system | Relational DB | Distributed DB |  
+| Scalable | Vertically | Horizontally |  
+| complex queries | can be used | not good for it |  
+| Schema | Fixed & predefined | Dynamic |  
+| Hierarchical Data Storage | Not suit | Best suitable |  
 
 9. What are the benefits usin mongoose opposed to basic mongo library.
 Основная - способность строить структуры по которым проверяются данные на валидность, возможность дополнение данных базовыми если их нет в запросе. 
@@ -56,7 +73,19 @@ AWS также предоставляет самые широкие функци
 - Set and WeakSet
 
 
-13. What is Asynk await ?
+13. What is Async/Await ?
+Специальный синтаксис для работы с промисами
+Ключевое слово __async__ гарантирует, эта функция в любом случае вернёт промис.
+Ключевое слово __await__ заставит JS ждать, пока промис справа от await не выполнится.  
+```js
+async function f() {
+  return 1; // == return Promise.resolve(1);
+}
+
+f().then(alert);
+// функция возвратит выполненный промис с результатом 1
+```
+
 
 14. Index table in MongoDB
 
@@ -75,7 +104,8 @@ mongoose library
 
 21. GraphQL and REST pros and cons 
 
-22. What is WebSocket is what it is better than HTTP?
+22. What is WebSocket is what it is better than HTTP?  
+WebSocket — протокол связи поверх TCP-соединения, предназначенный для обмена сообщениями между браузером и веб-сервером в режиме реального времени.  
 
 ## English
 - What is your real level of English?  
