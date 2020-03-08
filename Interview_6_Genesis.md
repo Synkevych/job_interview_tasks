@@ -107,6 +107,22 @@ mongoose library
 22. What is WebSocket is what it is better than HTTP?  
 WebSocket — протокол связи поверх TCP-соединения, предназначенный для обмена сообщениями между браузером и веб-сервером в режиме реального времени.  
 
+23. What do you know about Error Object in JS? 
+JS имеет множество встроеных конструкторов объектов ошибок, таких как __Error__, __SyntaxError()__, __TypeError()__ и других которые используются в инструкции _throw_.
+Объекты ошибок, создаваемые этими конструкторами. имеют свойства:
+- name – значение свойства _name_ функции конструктора создающего объект. 
+- message - строка которая передается конструктору при создании объекта.
+
+Конструкторы ошибок можно вызывать без оператора new.
+
+24. What can you say about Wrapper Object? 
+Объекты обертки обладают рядом интересныйх свойств и методов. Фактически для каждого примитивного типа есть объект обертка. Объекты числа имеют методы _toFixed()_, _toExponential()_. Объекты-строки имеют методы _substring()_, _charAt()_, _toLowerCase()_. _length_.
+Использования конструкторов без оператора _new_ преобразут аргументы в элементарные значения.
+```js 
+typeof Number(1);     // "number"
+ttypeof Number("1");    // "number"
+```
+
 ## English
 - What is your real level of English?  
 *I think you just got here to check it out. Let's check it out now.* 
