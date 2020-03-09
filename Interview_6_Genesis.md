@@ -27,19 +27,13 @@ app.get('/', function(req, res) {
 });
 ```
 8. Difference betwine SQL and noSQL database  
-| Type | SQL | NoSQL |  
-| ----| ---- | ---- |  
+| __Type__ | __SQL__ | __NoSQL__ |
+|-------------|------------|------------|
 | Management system         | Relational DB      | Distributed DB   |  
 | Scalable                  | Vertically         | Horizontally     |  
 | complex queries           | can be used        | not good for it  |  
 | Schema                    | Fixed & predefined | Dynamic          |  
 | Hierarchical Data Storage | Not suit           | Best suitable    |
-
-
-| __Animals__ | __Sports__ | __Fruits__ |
-|-------------|------------|------------|
-| Cat         | Soccer     | Apple      |
-| Dog         | Basketball | Orange     |
 
 9. What are the benefits usin mongoose opposed to basic mongo library.
 Основная - способность строить структуры по которым проверяются данные на валидность, возможность дополнение данных базовыми если их нет в запросе. 
