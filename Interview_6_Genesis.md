@@ -26,7 +26,8 @@ app.get('/', function(req, res) {
   res.send('hello world');
 });
 ```
-8. Difference betwine SQL and noSQL database  
+8. Difference betwine SQL and noSQL database
+  
 | __Type__ | __SQL__ | __NoSQL__ |
 |-------------|------------|------------|
 | Management system         | Relational DB      | Distributed DB   |  
