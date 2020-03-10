@@ -138,6 +138,8 @@ typeof Number(1);     // "number"
 ttypeof Number("1");    // "number"
 ```
 
+24. TypeScript, do you use it?  
+
 ## English
 - What is your real level of English?  
 *I think you just got here to check it out. Let's check it out now.* 
