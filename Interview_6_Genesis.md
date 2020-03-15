@@ -36,7 +36,7 @@ app.get('/', function(req, res) {
 | Schema                    | Fixed & predefined | Dynamic          |  
 | Hierarchical Data Storage | Not suit           | Best suitable    |
 
-9. What are the benefits usin mongoose opposed to basic mongo library.  
+9. What are the benefits usin __mongoose__ opposed to basic __mongo__ library.  
 Основная - способность строить структуры по которым проверяются данные на валидность, возможность дополнение данных базовыми если их нет в запросе. 
 
 10. What are the Amazone web services?  
@@ -88,9 +88,9 @@ f().then(alert);
 ```
 
 
-14. Index table in MongoDB
+14. Index tables in MongoDB
 
-15. What difference betwen protorype and class in JS?
+15. What difference betwen __prototype__ and __class__ in JS?
 
 16. Authentication Methods based on (Using JWT for API authentication).
 
@@ -139,6 +139,9 @@ ttypeof Number("1");    // "number"
 ```
 
 24. TypeScript, do you use it?  
+
+25. Карирование функций 
+Происходит от имени математика Хаскелла Карри (Haskell Curry). (Язык программирования Haskell также назван в его честь.) Каррирование – это процесс преобразования, в данном случае – процесс преобразования функции.
 
 ## English
 - What is your real level of English?  
