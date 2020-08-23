@@ -142,8 +142,32 @@ function compress(a) {
 	
 Все остальные блочные.
 
-### 4 Using bash open file and remove duplicats 
+### 4 Using bash open file and remove duplicates words
+
+- Sort all the words (not words but lines, so work only in new word in new line)
+
+```bash
+sort -u new.txt >>newfile2.txt
+```
+
+- To count the number of words, use “wc” with “w” option as
+
+```bash
+wc -w new.txt
+```
+
+- To sort all words and return the result to console
+
+```
+cat new.txt | tr " " "\n" | sort
+```
+
 ### 5 Using bash create file and send a log to it
+
+```bash
+ls > listOfFile.txt
+```
+
 ### 6 What is HTTP ? 
 We have http & ftp protocol 
 http – stands for Hyper Text Transfer Protocol
@@ -154,7 +178,8 @@ Communication between client computers and web servers is done by sending HTTP R
 
 Communication between clients and servers is done by requests and responses:
 ### 7 Run full deleting in PostgreSQL
-VACUUM FULL - используется для польной очистки базы данных 
+
+**VACUUM FULL** - используется для польной очистки базы данных 
 
 ### 8 center a block inside another block
 ––––––
@@ -226,7 +251,7 @@ git-fetch - Download objects and refs from another repository
 3. модификация - PUT
 4. удаление - DELETE
 
-### OOP : Encapsulation, Inheritanc, Polymorphism
+### OOP : Encapsulation, Inheritanc, Polymorphism and Abstraction
 Числа, строки, логические переменные (true и false), а также значения null и undefined в JavaScript относятся к простым типам данных. Всё остальное — объекты. Числа, строки и логические переменные похожи на объекты тем, что имеют методы, но в отличие от объектов они неизменны. Объекты в JavaScript имеют изменяемые ключевые коллекции. В JavaScript объектами являются массивы, функции, регулярные выражения, и, конечно, объекты также являются объектами.
  Литерал — один из способов создания объекта. Также мы можем использовать фабричные функции или Object.create() для создания такого же массива:
 ```jsx
