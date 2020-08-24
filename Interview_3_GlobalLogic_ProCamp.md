@@ -217,22 +217,24 @@ ______
 
 ### 9 CSS after and before tag
 
-### 10 Sorting and finding methonn in JavaScript 
+### 10 Sorting and finding methods in JavaScript 
 filter
 find(fn) // find only one element!!
-findIndex(fn)
+findIndex(fn) // will find the first element that matches the search and return it or return -1
 sort
 every 
 includes
 forEach()
-indexOf
+indexOf //returns the index of the first occurrence of the specified value in the String object on which it was called, or -1
 
-### 11 JavaScript Closures
-JavaScript variables can belong to the **local**, **global** or **block {}** scope.
+### 11 Type of JavaScript Closures
+JavaScript variables can belong to the **local**, **global(window)** or **block {}** scope.
 
-### 12 Git fetch command
-git-fetch - Download objects and refs from another repository
+### 12 Git *fetch* or git *pull*
+**git fetch** - Download objects and refs from another repository
 (для получения данных из удалённых проектов, те которые мы неможем изменить, их можно тоже добавить в remote)
+
+**git pull** = **git fetch** + **git merger**
 
 ### 13 REST-API 
 это общие принципы организации взаимодействия приложения/сайта с сервером посредством протокола HTTP. Особенность REST в том, что сервер не запоминает состояние пользователя между запросами - в каждом запросе передаётся информация, идентифицирующая пользователя (например, token, полученный через OAuth-авторизацию) и все параметры, необходимые для выполнения операции.
@@ -251,7 +253,7 @@ git-fetch - Download objects and refs from another repository
 3. модификация - PUT
 4. удаление - DELETE
 
-### OOP : Encapsulation, Inheritanc, Polymorphism and Abstraction
+### OOP : Encapsulation, Inheritance, Polymorphism and Abstraction
 Числа, строки, логические переменные (true и false), а также значения null и undefined в JavaScript относятся к простым типам данных. Всё остальное — объекты. Числа, строки и логические переменные похожи на объекты тем, что имеют методы, но в отличие от объектов они неизменны. Объекты в JavaScript имеют изменяемые ключевые коллекции. В JavaScript объектами являются массивы, функции, регулярные выражения, и, конечно, объекты также являются объектами.
  Литерал — один из способов создания объекта. Также мы можем использовать фабричные функции или Object.create() для создания такого же массива:
 ```jsx
@@ -260,8 +262,8 @@ git-fetch - Download objects and refs from another repository
 
 // Фабричная функция
 Array(1,2,3,4,5)
-
 ```
+
 **Наследование**
 Наследование способствует повторному использованию кода, но зачастую приходится брать больше, чем нужно.
 - Проблема в том, что если вы наследуете реализацию суперкласса, а затем меняете её, то эти изменения отзываются эхом во всей иерархии классов. В конечном итоге это может повлиять на все подклассы.
@@ -306,6 +308,36 @@ User.getEmail = function() {
 	this.handleClick = this.handleClick.bind(this);
 	this.handleClick(card.id)
 ```
+С помощью **bind()** мы можем заимствовать методы
+```javascript
+//  Тут у нас объект с данными о машинах, у которого нет метода для вывода своих данных в консоль
+var cars = { data:[
+		   {name:"Honda Accord", age:14},
+		   {name:"Tesla Model S", age:2}
+		  ]
+	   }
+
+//  Мы можем взять метод showData() из объекта user, который мы сделали в предыдущем примере
+//  Ниже мы свяжем метод user.showData с объектом cars
+
+cars.showData = user.showData.bind (cars);
+cars.showData (); // Honda Accord 14
+```
+
+**apply()** позволяет нам выполнять функцию в массиве параметров, как-будто каждый параметр передаётся функции индивидуально, при её выполнении
+
+Метод **apply()** вызывает функцию с указанным значением this и аргументами, предоставленными в виде **массива** (либо массивоподобного объекта).
+Метод **call()** вызывает функцию с указанным значением this и **индивидуально предоставленными аргументами**
+
+Вообще **Apply()** и **Call()** в JavaScript используют в основном, чтобы заимствовать функции. С этими методами, мы можем выполнять заимствования также, как и с методом bind(), но при этом быть более гибкими.
+
+```js
+var allNumbers = [23, 11, 34, 56];
+    //  Используя метод apply(), мы передаём числа:
+    console.log (Math.max.apply (null, allNumbers)); // 56
+    // первый аргумент в apply() выставляет значение this, но this не используется в Math.max() методе, поэтому мы передаём null 
+```
+
 // Сортировка масива и удаление дубликатов 
 
 ```js
