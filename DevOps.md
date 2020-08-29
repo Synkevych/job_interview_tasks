@@ -1,21 +1,20 @@
 1. How to cheek which user in the system is logged in?
 
-```shell 
+```shell
 echo "$USER"
 
-# or 
+# or
 whoami
 
-#or 
+#or
 id -u
-
 ```
 
 2. Does Docker like a virtual machine?  
 __Docker isn't a virtual machine - it is a configuration management tool.__
 
-3. What type of services provides Amazon?  
-- __IaaS__ Infrastructure as a Service. 
+3. What type of services provides Amazon?
+- __IaaS__ Infrastructure as a Service.
 - __PaaS__ Platform as a Service  
 - __SaaS__ Software as a Service
 
@@ -31,30 +30,50 @@ __Программное обеспечение как услуга(SaaS):__
 
 4. What type of services provides Google?
 
-5. How to change to switch to superuser? 
-_su_ - command is used to switch the current user o another user from SSH.
-```bash 
+5. How to change to switch to superuser?
+
+_su_ - command is used to switch the current user to another user from SSH.
+
+```bash
 su -
 
-#or 
+#or
 
 sudo su -root
 
-# to login as root on Ubuntu 
+# to login as root on Ubuntu
 sudo -i
 ```
 
 6. What layer of ISO provide Security protocol?  
 __6 Presentational__
 
-7. How to check the number of running containers? 
+7. How to check the number of running containers?
 
 8. What the port used to default ?  
 
-__. В отличие от HTTP с TCP-портом 80, для HTTPS по умолчанию используется TCP-порт 443__  
+__. В отличие от HTTP с TCP-портом 80, для HTTPS по умолчанию используется TCP-порт 443__
 
 9. Which command is used to check and correct network setting? 
 
 - __ping 127.0.0.1__ - checking the availability of a given address
 - __ipconfig__ or __ipconfig/all__ 
 - __trancet \<destination host name or IP address\>__
+
+10. Уровни модели ISO ( Единицей нагрузки – PDU )
+
+<img src="/img/OSI-model.png">
+
+- 1 уровень **Физический**. PDU – бит. Кроме единиц и нулей физический уровень не знает ничего. На этом уровне работают провода, патч панели, сетевые концентраторы (хабы, которые сейчас уже сложно найти в привычных нам сетях), сетевые адаптеры. Именно сетевые адаптеры и ничего более из компьютера. Сам сетевой адаптер принимает последовательность бит и передает её дальше.
+
+- 2 уровень **Канальный**. PDU - кадр (frame). На этом уровне появляется адресация. Адресом является MAC адрес. Канальный уровень ответственен за доставку кадров адресату и их целостность. В привычных нам сетях на канальном уровне работает протокол ARP. Адресация второго уровня работает только в пределах одного сетевого сегмента и ничего не знает о маршрутизации - этим занимается вышестоящий уровень. Соответственно, устройства, работающие на L2 - коммутаторы, мосты и драйвер сетевого адаптера.
+
+- 3 уровень **Сетевой**. PDU - пакет. Наиболее распространенным протоколом тут является IP. Адресация происходит по IP-адресам, которые состоят из 32 битов. Протокол маршрутизируемый, то есть пакет способен попасть в любую часть сети через какое-то количество маршрутизаторов. На L3 работают маршрутизаторы.
+
+- 4 уровень **Транспортный**. PDU - сегмент/датаграма. На этом уровне появляются понятия портов. Тут трудятся TCP и UDP. Протоколы этого уровня отвечают за прямую связь между приложениями и за надежность доставки информации. Например, TCP умеет запрашивать повтор передачи данных в случае, если данные приняты неверно или не все. Так же TCP может менять скорость передачи данных, если сторона приема не успевает принять всё (TCP Window Size).
+
+- 5 уровень **Сеансовый**. PDU - данные. Управляет сеансом связи, обменом информации, правами. Протоколы - L2TP, PPTP.
+
+- 6 уровень **Представительский**. PDU - данные. Преставление и шифрование данных. JPEG, ASCII, MPEG.
+
+- 7 уровень **Прикладной**. PDU - данные. Самый многочисленный и разнообразный уровень. На нем выполняются все высокоуровненвые протоколы. Такие как POP, SMTP, RDP, HTTP и т.д. Протоколы здесь не должны задумываться о маршрутизации или гарантии доставки информации - этим занимаются нижестоящие уровни. На 7 уровне необходима лишь реализации конкретных действий, например получение html-кода или email-сообщения конкретному адресату.
