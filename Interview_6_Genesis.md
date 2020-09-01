@@ -14,6 +14,13 @@ Result - fail (english level less than required)
 
 ### 5. Promises
 
+Used to handle asynchronous operations. They can handle multiple asynchronous operations easily and provide better error handling than callbacks and events.
+
+Promise has three states:
+1. **fulfilled** - action related to the promise succeded
+2. **rejected** - action related to the proise failed
+3. **pending** - promise is still pending 
+
 ### 6. Nested rountes innside Express
 
 ### 7. What is routes?
@@ -167,6 +174,10 @@ ttypeof Number("1");    // "number"
 
 **Карирование функций**
 Происходит от имени математика Хаскелла Карри (Haskell Curry). (Язык программирования Haskell также назван в его честь.) Каррирование – это процесс преобразования, в данном случае – процесс преобразования функции.
+
+### What is CORS?
+Cros-Origin Resource Sharing - browser mechanism which enables controlled aceess to resources located outside of a given domain. Extends and adds flexibility to the same-origin posily.
+
 
 ## English
 
