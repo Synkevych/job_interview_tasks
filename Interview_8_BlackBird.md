@@ -85,6 +85,58 @@ ps -ef --sort=start_time
 
 Оператором WHERE + указания названия 2 таблиц и условия 
 
+What is a class?
+What is the difference between a class and a module?
+What is an object?
+How would you declare and use a constructor in Ruby?
+How would you create getter and setter methods in Ruby?
+ch Navigator Interview Ruby on Rails Developer
+How to Interview Your Ruby on Rails Developer
+127095 VIEWS
+All 
+We at RubyGarage want to share our knowledge about how to interview a Ruby on Rails developer. Since our main purpose is to sell great code, we require great coders.
+
+This article will come in handy for you when you need to test a Ruby on Rails programmer but aren’t sure what questions to ask the Rails interviewee. You can consider this article as a guide for how to interview a Ruby on Rails programmer.
+
+We’re not going to include all the questions you could ask, as that would take more than one article. For example, we decided to omit questions about code idioms and cunning expressions in Ruby. Also, we don’t want to give away all the questions which we might ask during an interview with a developer. We don't want a developer to simply look for answers on the Internet, as our main purpose is to ensure that we check the developer's grasp of the language and framework. We merely want to see how a Ruby software engineer expounds their knowledge of the domain.
+
+Now let's chalk out the structure of a Ruby on Rails interview. The article will be divided into several parts since we usually check separate domains of knowledge. Here is the structure we typically use:
+
+Ruby questions;
+Ruby on Rails questions;
+A pair programming task;
+A home task.
+
+## Ruby tasks 
+
+What is a class?
+What is the difference between a class and a module?
+What is an object?
+How would you declare and use a constructor in Ruby?
+How would you create getter and setter methods in Ruby?
+Describe the difference between class and instance variables?
+What are the three levels of method access control for classes and what do they signify?
+What does ‘self’ mean?
+Explain how (almost) everything is an object in Ruby.
+Explain what singleton methods are. What is Eigenclass in Ruby?
+Describe Ruby method lookup path.
+Describe available Ruby callbacks. How can we use them in practice?
+What is the difference between Proc and lambda?
+
+## Biseness application
+
+What is Rack?
+Explain the Rack application interface.
+Write a simple Rack application.
+How does Rack middleware works?
+
+## Ruby jems 
+
+What is RubyGems? How does it work?
+How can you build your own Ruby gem?
+Explain the structure of a Ruby gem.
+Can you give me some examples of your favorite gems besides Ruby on Rails?
+
 ## English part
 
 1. What is the name of institute where you work now?
