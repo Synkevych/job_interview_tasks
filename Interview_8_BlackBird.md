@@ -83,12 +83,32 @@ ps -ef --sort=start_time
 
 ### Какой лучший способ вытянуть данные сразу из нескольких таблиц?
 
-Оператором WHERE + указания названия 2 таблиц и условия 
+Оператором WHERE + указания названия 2 таблиц и условия
 
-What is a class?
-What is the difference between a class and a module?
-What is an object?
-How would you declare and use a constructor in Ruby?
+### What is a class?
+
+Клас это каркас из которого создаются объекты. Объекты также являются экземплярами класа. Например, Животное является класом, а птицы, рыбы, рептилли экземпляры этого класа. 
+
+```ruby
+class Animal
+
+  # class variables
+  @@type of animal = 4
+end
+```
+
+### What is the difference between a class and a module?
+
+* Модули в Руби похожи на классы в том, что они содержат набор методов и констанат, другие модули и определения классов. В отличии от класов нельза создать новый екзепляр на основе модуля, модуль не может иметь подклассы.
+
+### What is an object?
+
+* В руби любая закорючка – это объект какого-то класса.  Эсть много разных типов объектов, массивы, метки, даты, целые числа, строки. Благодаря наследованию от нужного объекта мы получим все методы для работы с этим класом, также это позволять понять что это за класс и понять что с ним можно слелать.
+
+Посмотреть класс любого объекта можно вызвав у этого объекта по цепочке методы **.class** и **.name**.
+
+### How would you declare and use a constructor in Ruby?
+
 How would you create getter and setter methods in Ruby?
 ch Navigator Interview Ruby on Rails Developer
 How to Interview Your Ruby on Rails Developer
