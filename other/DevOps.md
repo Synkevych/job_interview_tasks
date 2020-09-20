@@ -1,4 +1,6 @@
-# Basic questions about the linux system and how to work with the file system
+# DevOps combines software development (Dev) and IT operations (Ops)
+
+## Basic questions about the linux system and how to work with the file system
 
 ### 1. How to cheek which user in the system is logged in?
 

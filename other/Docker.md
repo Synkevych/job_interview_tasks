@@ -1,4 +1,4 @@
-# Docker
+# Docker basics
 
 Программное обеспечение для автоматизации развёртывания и управления приложениями в средах с поддержкой контейнеризации.
 
@@ -7,7 +7,7 @@
 Docker makes it really easy to install and run software without worrying about setup or dependencies.  
 Docker is a platform or ecosystem around creating and running containers.
 
-## What is Docker?
+## What is Docker
 
 Docker Ecosystem:
 

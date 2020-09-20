@@ -1,11 +1,16 @@
+# GlobalLogic Interview
+
+## Courses - Front-End Developer (React+Node)
+
 ### 1 Show duplicate elements in an array
+
 Input: [1,2,3,7], [4,2,3,9]; [2,3,5,1,12,4], [8,1,4,2,3]
 Output: [2,3]; [2,3,1]
 ```javascript
 
 let arr = [1,2,3,7],
 	arr2 = [4,2,3,9];
-// v1 
+// v1
 let newArr = arr.concat(arr2);
 
 let res = newArr.filter(function(value, index, self) {
@@ -26,9 +31,10 @@ let res = [...arr, ...arr2].reduce(function(acc, el, i, arr) {
 
 // remove duplicate from array  
 let deletedDuplicate = [...new Set([..arr, ...arr2])]
-
 ```
+
 ### 2 Create new object using method reduce
+
 Input: [{a:1}, {a:2}, {a:3}]
 Output: {a:1, index:0}, {a:2, idex:1}
 
@@ -39,15 +45,21 @@ Output: {a:1, index:0}, {a:2, idex:1}
 }, []);
 // [ { a: 1, i: 0 }, { a: 2, i: 1 } ]
 ```
+
 ### Return an object that contains the number of times each string occured in the array
+
+```js
  function countWords(arr) {
       return arr.reduce(function(countMap, word) {
         countMap[word] = ++countMap[word] || 1 // increment or initialize to 1
         return countMap
       }, {}) // second argument to reduce initialises countMap to {}
  }
+```
+
 ### Find index of first different from the others element
-```jsx 
+
+```jsx
 //v1
 function iqTest(numbers) {
 	let newNum = numbers.split(' ');
@@ -83,7 +95,9 @@ const iqTest = test => {
   return numbers.indexOf(differ) + 1
 }
 ```
-### Count all duplicate in array and return new array 
+
+### Count all duplicate in array and return new array
+
 Input: '1, 2, 2, 3, 3, 3, 4, 4, 4, 4'
 Outpu: [ '1', [ '2', 2 ], [ '3', 3 ], [ '4', 4 ] ]
 
@@ -119,9 +133,12 @@ function compress(a) {
 	return cs;
 }
 ```
+
 ### 3 Блочные и строчные элементы
+
 Строчные элементы могут содержать только данные и другие строчные элементы.
 Строчными елементами являются:
+
 ```html
 <a>, <area>,
 <b>, <bdo>, <bdi>,
@@ -139,7 +156,7 @@ function compress(a) {
 <u>,
 <var>
 ```
-	
+
 Все остальные блочные.
 
 ### 4 Using bash open file and remove duplicates words
@@ -177,6 +194,7 @@ WWW is about communication between web clients and servers
 Communication between client computers and web servers is done by sending HTTP Requests and receiving HTTP Responses.
 
 Communication between clients and servers is done by requests and responses:
+
 ### 7 Run full deleting in PostgreSQL
 
 **VACUUM FULL** - используется для польной очистки базы данных 
@@ -217,7 +235,8 @@ ______
 
 ### 9 CSS after and before tag
 
-### 10 Sorting and finding methods in JavaScript 
+### 10 Sorting and finding methods in JavaScript
+
 filter
 find(fn) // find only one element!!
 findIndex(fn) // will find the first element that matches the search and return it or return -1
@@ -237,7 +256,8 @@ JavaScript variables can belong to the **local**, **global(window)** or **block 
 **git pull** = **git fetch** + **git merger**
 
 ### 13 REST-API 
-это общие принципы организации взаимодействия приложения/сайта с сервером посредством протокола HTTP. Особенность REST в том, что сервер не запоминает состояние пользователя между запросами - в каждом запросе передаётся информация, идентифицирующая пользователя (например, token, полученный через OAuth-авторизацию) и все параметры, необходимые для выполнения операции.
+
+Это общие принципы организации взаимодействия приложения/сайта с сервером посредством протокола HTTP. Особенность REST в том, что сервер не запоминает состояние пользователя между запросами - в каждом запросе передаётся информация, идентифицирующая пользователя (например, token, полученный через OAuth-авторизацию) и все параметры, необходимые для выполнения операции.
 
 Всё взаимодействие с сервером сводится к 4 операциям (4 - это необходимый и достаточный минимум, в конкретной реализации типов операций может быть больше):
 1. получение данных с сервера (обычно в формате JSON, или XML)
@@ -399,6 +419,7 @@ var r = [],
 ```
 
 ### return the number of arguments passed to it which have property 'quack'
+
 ```js
 // using call function 
 function duckCount() {

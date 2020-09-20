@@ -1,4 +1,6 @@
-# Message Type:
+# Git Basic
+
+### Message Type
 
 **feat**: a new feature
 **fix**: a bug fix
