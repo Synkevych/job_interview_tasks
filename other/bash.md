@@ -6,6 +6,22 @@
 
 Shell is a command line interface for running programs on a computer. The user types a bunch of commands at the prompt, the shell runs the programs for the user and then displays the output. The commands can be either directly entered by the user or read from a file called the shell script or shell program.
 
+### What's the version of my OS
+
+```bash
+$ uname -a 
+# give you kernel version 
+
+$ cat /proc/version
+
+$ cat /etc/*release
+# CentOS release 6.8 (Final)
+
+$ cat /etc/issue*
+
+$  lsb_release -a
+```
+
 ### View directory
 
 **pwd**  	- remove working directory / current directory  
