@@ -79,3 +79,22 @@ $ grep fruits.txt | wc -w # count total words
 
 $ cat fruits.txt | sort | uniq
 ```
+
+## Easy
+
+What is the etc folder for?
+How do I find out which directory I am currently in? Which user I am logged in as?
+How would I create a hidden file?
+How do I give a user sudo access?
+What's usually the name for the user with full admin privileges?
+How do I find out the current directory? Current user?
+How do I restart apache?
+How do I monitor processes?
+
+## Medium
+
+How do I determine how much disk space is free? Memory?
+What's usually the name of the group that has admin access?
+While file do I edit to automatically mount a drive on boot?
+What is systemd?
+How do I generate an RSA key? What would I use it for?
