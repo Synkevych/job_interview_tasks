@@ -9,8 +9,8 @@ Shell is a command line interface for running programs on a computer. The user t
 ### What's the version of my OS
 
 ```bash
-$ uname -a 
-# give you kernel version 
+$ uname -a
+# give you kernel version
 
 $ cat /proc/version
 
@@ -82,19 +82,53 @@ $ cat fruits.txt | sort | uniq
 
 ## Easy
 
-What is the etc folder for?
-How do I find out which directory I am currently in? Which user I am logged in as?
-How would I create a hidden file?
-How do I give a user sudo access?
-What's usually the name for the user with full admin privileges?
+### What is the etc folder for?
+
+This directory contains most of the basic Linux system configuration files.
+
+The /etc directory (means etcetera) contains configuration files, which can generally be edited by hand in a text editor.
+
+### How do I find out which directory I am currently in? Which user I am logged in as?
+
+### How would I create a hidden file?
+
+Any file or directory beginning with a dot (.) is considered a hidden file and is not displayed by default with ls. These dot files are typically configuration files or directories that need to be in your home directory, but don’t need to be seen in your daily work. The -a lets you see those fi les.
+
+### How do I give a user sudo access?
+
+```bash
+sudo usermod -a -G sudo user_name
+```
+
+### What's usually the name for the user with full admin privileges?
+
+In ubuntu default sudo user is ubuntu
+
 How do I find out the current directory? Current user?
 How do I restart apache?
-How do I monitor processes?
+
+### How do I monitor processes?
+
+```bash
+htop
+#or
+ps aux
+```
 
 ## Medium
 
-How do I determine how much disk space is free? Memory?
-What's usually the name of the group that has admin access?
-While file do I edit to automatically mount a drive on boot?
-What is systemd?
-How do I generate an RSA key? What would I use it for?
+### How do I determine how much disk space is free? Memory?
+
+### What's usually the name of the group that has admin access?
+
+It's name - sudo group (which is the "administrators" group in Ubuntu).
+
+### While file do I edit to automatically mount a drive on boot?
+
+### What is systemd?
+
+systemd — подсистема инициализации и управления службами в Linux, 
+Systemd запускает сервисы описанные в его конфигурации.
+Конфигурация состоит из множества файлов, которые по-модному называют юнитами.
+
+### How do I generate an RSA key? What would I use it for?
