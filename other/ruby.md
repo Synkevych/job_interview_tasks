@@ -26,7 +26,12 @@
 
 ### Easy
 
-How do you define a global variable, an instance variable, a class variable, and a local variable?
+### How do you define a global variable, an instance variable, a class variable, and a local variable?
+
+- глобальная переменная объявляется с помощъю знака `$` доступна во всем приложении, желательно избегать их
+- переменная екземпляра класса `@` доступна после объявления экземпляра класса в контексте выполнения(объявлена в контроллере доступна в отображении)
+- `@@` - переменная класса, доступна в самом классе
+- обычная, локальная переменная объявляется без дополнительных симаолов, доступна до ключевого слова `end`
 
 ### Does Ruby have primitives?
 
@@ -34,6 +39,18 @@ How do you define a global variable, an instance variable, a class variable, and
 Чаще всего значение примитивного типа представлено в низкоуровневой реализации языка.
 
 Все примитивы неизменяемы (immutable), то есть они не могут быть изменены. Важно не путать сам примитив с переменной, которой присвоено значение примитивного типа. Переменной может быть переприсвоено новое значение, но существующее значение примитивного типа не может быть изменено подобно объектам, массивам и функциям.
+
+Примитивов в Ruby нет, любая сущность является Object.
+Примитивы есть в JavaScript:  string, number, boolean.
+
+```ruby
+number = 1
+string = 'word'
+boolean = true
+p number.class  # Integer
+p string.class  # String
+p boolean.class # TrueClass
+```
 
 ### What does a ||= 5 in Ruby do?
 

@@ -1,4 +1,5 @@
 ## Пропустить все null, undefined и несуществ. элементы в массиве
+
 ```js
 if (!arr[і]) continue;
 
@@ -12,6 +13,7 @@ if (!(i in a)) continue;
 ```
 
 ## Использование forEach
+
 ```js 
 var data = [1, 2, 3, 4, 5];
 // Этот массив требуется обойти var sumOfSquares =0;
@@ -25,7 +27,7 @@ data.forEach(function(x) {
 //In addition to the arguments,
 // when calling any function, it is passed another value that defines the context of the call
 //- the value in the *this* keyword.
-```
+
 // Calculate the factorial
 function factorial(x) {
   if (x <= 1) return 1;
@@ -50,6 +52,7 @@ function hypotenuse(a, b) {
 // - as methods
 // - as constructors
 // - indirectly, using their methods call() and apply()
+```
 
 ## this
 // this – is a keyword, not a variable or property name.
