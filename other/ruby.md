@@ -88,26 +88,15 @@ else
 end
 # return not match
 
-if "hi there".match(/hi/) 
+if "hi there".match(/hi/)
     puts "match"
 end
 
 # declaring a function which checks for vowel in a string 
-def contains_vowel(str) 
-  str =~ /[aeiou]/ 
+def contains_vowel(str)
+  str =~ /[aeiou]/
 end
 ```
-
-### Как защитится от подделки межсайтовых запросов и токена (CSRF атаки)
-
-Стандартные формы в Рельсах имеют от этого защиту встроеную, для кастомных можно использовать:
-
-<head>
-  <%= csrf_meta_tags %>
-</head>
-
-> nil value = null on JavaScript
-> nil => false
 
 ### Как будет называется таблица после создания модели Answer в RoR
 
@@ -130,7 +119,8 @@ end
 puts tame(3)
 ```
 
-### Методы могут быть определены с помощью def иметь параметры и возв. значения 
+### Методы могут быть определены с помощью def иметь параметры и возв. значения
+
 ```ruby
 s = get_shakey
 
@@ -139,7 +129,7 @@ s["William Shakespeare"].each { |key, val|
   }
 ```
 
-show the books from to year 
+show the books from to year
 
 ```ruby
 def print_plays(year_from, year_to)
@@ -167,9 +157,9 @@ puts "This is true: 1 < 2" if 1 < 2
 
 'xyz'.empty? => false
 'abc' == 'def' => false
-'a' > 5   #error  comparison of String with Numeric failed 
+'a' > 5   #error  comparison of String with Numeric failed
 
-# another sample 
+# another sample
 
 a = 0
 

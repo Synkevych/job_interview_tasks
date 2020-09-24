@@ -2,8 +2,27 @@
 
 ### Easy
 
-How do you define a global variable, an instance variable, a class variable, and a local variable?
-Does Ruby have primitives?
+### How do you define a global variable, an instance variable, a class variable, and a local variable?
+
+- глобальная переменная объявляется с помощъю знака `$` доступна во всем приложении, желательно избегать их
+- переменная екземпляра класса `@` доступна после объявления экземпляра класса в контексте выполнения(объявлена в контроллере доступна в отображении)
+- `@@` - переменная класса, доступна в самом классе
+- обычная, локальная переменная объявляется без дополнительных симаолов, доступна до ключевого слова `end`
+
+### Does Ruby have primitives?
+
+Примитивов в Ruby нет, любая сущность является Object. 
+Примитивы есть в JavaScript:  string, number, boolean.
+
+```ruby
+number = 1
+string = 'word'
+boolean = true
+p number.class  # Integer
+p string.class  # String
+p boolean.class # TrueClass
+```
+
 What does a ||= 5 in Ruby do?
 How do you define a class method in Ruby?
 What is a symbol in Ruby?
@@ -33,9 +52,17 @@ How do you define a way to order and sort instances of a particular class?
 Find the problem with this code example.
 How would you call a private method outside of a class if needed?
 
-### Hard 
+### Hard
 
 What's the difference between raise and throw?
 How do you create a global threadsafe value?
 What's the difference between alias and alias_method besides the comma (hint: think overriding)?
 What's an eigenclass or metaclass in Ruby?
+
+### Как защитится от подделки межсайтовых запросов и токена (CSRF атаки)
+
+Стандартные формы в Рельсах имеют от этого защиту встроеную, для кастомных можно использовать:
+
+<head>
+  <%= csrf_meta_tags %>
+</head>
