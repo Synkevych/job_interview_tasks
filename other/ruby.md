@@ -27,12 +27,33 @@
 ### Easy
 
 How do you define a global variable, an instance variable, a class variable, and a local variable?
-Does Ruby have primitives?
-What does a ||= 5 in Ruby do?
-How do you define a class method in Ruby?
-What is a symbol in Ruby?
-What does ! mean in method names in Ruby?
-How do you catch an exception in Ruby?
+
+### Does Ruby have primitives?
+
+Примитив (значение примитивного типа, примитивный тип данных) это данные, которые не являются объектом и не имеют методов.
+Чаще всего значение примитивного типа представлено в низкоуровневой реализации языка.
+
+Все примитивы неизменяемы (immutable), то есть они не могут быть изменены. Важно не путать сам примитив с переменной, которой присвоено значение примитивного типа. Переменной может быть переприсвоено новое значение, но существующее значение примитивного типа не может быть изменено подобно объектам, массивам и функциям.
+
+### What does a ||= 5 in Ruby do?
+
+оператор ||= выполняет логическое действие ИЛИ между правой и левой частями.
+
+Если первая часть — правдива (вычисляется как true), то не важно, какое значение во второй части и наоборот, если в первой части что-то ложное (nil или false), то надо посмотреть, что во второй части.
+
+Проверят значение a, если оно пустое(значение `nil`, `false`,) то присвоить ему значение 5.
+
+### How do you define a class method in Ruby?
+
+### What is a symbol in Ruby?
+
+### What does ! mean in method names in Ruby?
+
+Опасный метод который модифицирует сам обект, они изменяют состояние, на которое у кого-то еще может быть ссылка.
+В Rails восклицательный знак часто означает, что метод будет выдавать исключение при сбое, а не отказывать молча.
+
+### How do you catch an exception in Ruby?
+
 What is a code block in Ruby?
 What is duck typing?
 True or false: Ruby is pure object-oriented language and everything appears to Ruby as an object.
