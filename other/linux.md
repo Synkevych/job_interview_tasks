@@ -1,8 +1,35 @@
 # Bash Basics
 
-## Some of the most useful BASH commands and the utility they offer
+Some of the most useful BASH commands and the utility they offer
 
-### Shell
+- [Bash Basics](#bash-basics)
+    - [What is Shell](#what-is-shell)
+    - [What's the version of my OS](#whats-the-version-of-my-os)
+    - [Что такое Переменная Среды](#что-такое-переменная-среды)
+    - [Что такое кластер](#что-такое-кластер)
+    - [View directory](#view-directory)
+    - [Open File](#open-file)
+    - [Logging In to a Remote System to Copy a File](#logging-in-to-a-remote-system-to-copy-a-file)
+    - [Show size of folder and file](#show-size-of-folder-and-file)
+    - [Work with files and folders](#work-with-files-and-folders)
+    - [Pipelines and Filters](#pipelines-and-filters)
+  - [Easy](#easy)
+    - [What is the etc folder for?](#what-is-the-etc-folder-for)
+    - [How do I find out which directory I am currently in? Which user I am logged in as?](#how-do-i-find-out-which-directory-i-am-currently-in-which-user-i-am-logged-in-as)
+    - [How would I create a hidden file?](#how-would-i-create-a-hidden-file)
+    - [How do I give a user sudo access?](#how-do-i-give-a-user-sudo-access)
+    - [What's usually the name for the user with full admin privileges?](#whats-usually-the-name-for-the-user-with-full-admin-privileges)
+    - [How do I find out the current directory? Current user?](#how-do-i-find-out-the-current-directory-current-user)
+    - [How do I restart apache?](#how-do-i-restart-apache)
+    - [How do I monitor processes?](#how-do-i-monitor-processes)
+  - [Medium](#medium)
+    - [How do I determine how much disk space is free? Memory?](#how-do-i-determine-how-much-disk-space-is-free-memory)
+    - [What's usually the name of the group that has admin access?](#whats-usually-the-name-of-the-group-that-has-admin-access)
+    - [While file do I edit to automatically mount a drive on boot?](#while-file-do-i-edit-to-automatically-mount-a-drive-on-boot)
+    - [What is systemd?](#what-is-systemd)
+    - [How do I generate an RSA key? What would I use it for?](#how-do-i-generate-an-rsa-key-what-would-i-use-it-for)
+
+### What is Shell
 
 Shell is a command line interface for running programs on a computer. The user types a bunch of commands at the prompt, the shell runs the programs for the user and then displays the output. The commands can be either directly entered by the user or read from a file called the shell script or shell program.
 
@@ -39,6 +66,11 @@ $ set TEST=test
 ```
 
 Переменные могут носить характер **локальный** для данного процесса или **глобальный** для сессии. Оценить содержимое набора переменных для сессии можно, вызвав встроенную команду интерпретатора `env`.Удаление переменных среды производится при помощи оператора `unset`.
+
+### Что такое кластер
+
+Кластер — это своего рода унифицированная вычислительная подложка, которая, с точки зрения пользователя, выглядит как компьютер очень
+высокой мощности, способный работать с контейнерами.
 
 ### View directory
 
