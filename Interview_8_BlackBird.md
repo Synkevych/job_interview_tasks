@@ -34,9 +34,78 @@ puts "#{small_dog}2 #{small_dog.bark}" # => Собака2 лает тихо
 
 - **Полиморфизм** - Возможность иметь несколько классов, содержащих одноименные методы, называется полиморфизм.
 
+### What are some advantages of using Ruby
+
+* Pure Onject-Oriented Language
+* Open-Source
+* Metaprogramming
+* Cleand and Simple Syntax
+
+### How would you freeze and object in Ruby?
+
+```ruby
+water.freeze
+if( water.frozen? )
+   puts "Water object is a frozen object"
+else
+   puts "Water object is a normal object"
+end
+```
+
+### Ruby probides 4 types of variables, list them
+
+* global variables begin with $  
+* local variables begin with a lowervase letter or an underscore
+* class variables begin @@ and are shared by all instances of the class that it is defined in
+* instance vatiables begin with @ and are similar to class variables exept that they are local to a single instance of a class in which they are instantiated
+
+### Name three levels of access control for Ruby methods
+
+* public
+* private
+* protected - only accessible within their defining class and its subclasses
+
+### Explain the role of modules and mixines in Ruby
+
+### Action Cable
+
+Позволяет использовать Web Socets для написания функциональности передачи данных в режиме реального времени
+
+### Active Record - М в MVC
+
+Является  Object Rational Mapping(ORM) фреймворком обектно реляционное отображение которое помогает получать данные из БД без написания SQL кода.
+
+### Мотоды создание нового ресурса
+
+* build - псевдрним для new
+* create - эквавилентно **new**  с последующим **save**, и вернет модель независимо от результата сохранения
+* create! - эквавиленто **new** с последующим **save!** вернет ошибку если сохранение не удается 
+* new - создает но не сохраняет
+* save - вернет true / false
+
+### Что означает знак восклицания в методах 
+
+Опасный метод который модифицирует сам обект, они изменяют состояние, на которое у кого-то еще может быть ссылка.
+В Rails восклицательный знак часто означает, что метод будет выдавать исключение при сбое, а не отказывать молча.
+
+### Способ обмена переменными экземпляра
+
+```ruby
+attr_accessor :var
+attr_reader :var
+
+attr_writer :age
+# gбудет преобращовано в
+def age=(value)
+  @age = value
+end
+```
+
 ### 2. Разница в использования `git rebase` `git clone`
 
 ### 3. Что делает команда `git cherry-pick`
+
+Она берет изменения с одного коммита и применяет их в виде нового коммита к текущей ветки.
 
 ### 4. Как работает протокол передачи HTTP
 
@@ -85,58 +154,92 @@ ps -ef --sort=start_time
 
 Оператором WHERE + указания названия 2 таблиц и условия
 
-### What is a class?
+## Ruby tasks
 
-Клас это каркас из которого создаются объекты. Объекты также являются экземплярами класа. Например, Животное является класом, а птицы, рыбы, рептилли экземпляры этого класа. 
+### What is a class
+
+Элемент ПО который описывает абстрактный тип данных и его частичную или полную реализацию.
+Клас это каркас из которого создаются объекты. Объекты - являются экземплярами класа которая способна сохранять свое состояние и обеспечивающая набор операций для проверки и изменения этого состояния(состояние объекта харастеризируется значениями его атрибутов).
+Например, Животное является класом, а птицы, рыбы, рептилли экземпляры этого класа.
 
 ```ruby
 class Animal
 
   # class variables
-  @@type of animal = 4
+  @@lungs = true
+  @@number_of_legs = 4
 end
 ```
 
-### What is the difference between a class and a module?
+### What is the difference between a class and a module
 
-* Модули в Руби похожи на классы в том, что они содержат набор методов и констанат, другие модули и определения классов. В отличии от класов нельза создать новый екзепляр на основе модуля, модуль не может иметь подклассы.
+Модули в Руби похожи на классы в том, что они содержат набор методов и констанат, другие модули и определения классов. В отличии от класов нельза создать новый екзепляр на основе модуля, модуль не может иметь подклассы.
 
-### What is an object?
+### What is an object
 
-* В руби любая закорючка – это объект какого-то класса.  Эсть много разных типов объектов, массивы, метки, даты, целые числа, строки. Благодаря наследованию от нужного объекта мы получим все методы для работы с этим класом, также это позволять понять что это за класс и понять что с ним можно слелать.
+В руби любая закорючка – это объект какого-то класса.  Эсть много разных типов объектов, массивы, метки, даты, целые числа, строки. Благодаря наследованию от нужного объекта мы получим все методы для работы с этим класом, также это позволять понять что это за класс и понять что с ним можно слелать.
 
 Посмотреть класс любого объекта можно вызвав у этого объекта по цепочке методы **.class** и **.name**.
 
-### How would you declare and use a constructor in Ruby?
+### How would you declare and use a constructor in Ruby
 
-How would you create getter and setter methods in Ruby?
-ch Navigator Interview Ruby on Rails Developer
-How to Interview Your Ruby on Rails Developer
-127095 VIEWS
-All 
-We at RubyGarage want to share our knowledge about how to interview a Ruby on Rails developer. Since our main purpose is to sell great code, we require great coders.
+Конструктор используется для инициализации состояния объекта.
+Способ создания объектов в Ruby — вызов метода new в классе, фактически это вызывает метод initialize.
 
-This article will come in handy for you when you need to test a Ruby on Rails programmer but aren’t sure what questions to ask the Rails interviewee. You can consider this article as a guide for how to interview a Ruby on Rails programmer.
+Метод initialize в Ruby — это специальный метод, который действует как конструктор, как мы увидим в примере ниже.
 
-We’re not going to include all the questions you could ask, as that would take more than one article. For example, we decided to omit questions about code idioms and cunning expressions in Ruby. Also, we don’t want to give away all the questions which we might ask during an interview with a developer. We don't want a developer to simply look for answers on the Internet, as our main purpose is to ensure that we check the developer's grasp of the language and framework. We merely want to see how a Ruby software engineer expounds their knowledge of the domain.
+```ruby
+class Person
+  def initialize (name, age) # Конструктор
+    @name = name
+    @age = age
+  end
+  def get_info
+    @additional_info = "Интересно"
+    "Имя: #{@name}, возраст: #{@age}"
+  end
+end
 
-Now let's chalk out the structure of a Ruby on Rails interview. The article will be divided into several parts since we usually check separate domains of knowledge. Here is the structure we typically use:
+person1 = Person.new("Джо", 14)
+p person1.instance_variables # [:@name, :@age]
+puts person1.get_info # => Имя: Джо, возраст: 14
+p person1.instance_variables # [:@name, :@age, :@additional_info]
+```
 
-Ruby questions;
-Ruby on Rails questions;
-A pair programming task;
-A home task.
+### How would you create getter and setter methods in Ruby
 
-## Ruby tasks 
+Они используются для доступа к переменным екземпляра класса. Для доступа к ним нужно определить методы *getter/setter*.
+Синктаксис методов:
 
-What is a class?
-What is the difference between a class and a module?
-What is an object?
-How would you declare and use a constructor in Ruby?
-How would you create getter and setter methods in Ruby?
-Describe the difference between class and instance variables?
+* attr_accessor — getter и setter
+* attr_reader — только getter
+* attr_writer — только setter
+
+```ruby
+class Person
+  def initialize (name, age) # Конструктор
+    @name = name
+    @age = age
+  end 
+  def name # name getter
+    @name
+  end 
+  def name= (new_name) # name setter
+    @name = new_name
+  end
+end
+```
+
+### Describe the difference between class and instance variables
+
+Разница в области видимости, **@name** - переменные экземпляра класса, **@@name** - переменные самого класса
+
 What are the three levels of method access control for classes and what do they signify?
-What does ‘self’ mean?
+
+### What does ‘self’ mean
+
+**self** внутри метода екземпляра относится к самому объекту. Оно не используется для вызова методов того же экземпляра класса.
+
 Explain how (almost) everything is an object in Ruby.
 Explain what singleton methods are. What is Eigenclass in Ruby?
 Describe Ruby method lookup path.
@@ -145,7 +248,8 @@ What is the difference between Proc and lambda?
 
 ## Biseness application
 
-### What is Rack?  
+### What is Rack
+
 Rack изначально разрабатывался под вдохновением от пайтоновского wsgi и быстро стал фактически application/server — интерфейсом для всего сообщества Ruby — программистов благодаря своей простоте и перфекционизму создателей.
 
 Rake это язык сборки Ruby. Его имя происходит от «Ruby’s make».
@@ -153,28 +257,26 @@ Rake — инструмент для автоматизации сборки п�
 Rails использует Rake для автоматизации связанных с приложением заданий, к примеру операций с базой данных, тестами и т.д.
 Rack предоставляет минималичтичный, модульный и адаптируемый интерфейс для разработки веб приложений на языке программирования Ruby (ничего не понятно, правда?). Вместе с оберткой HTTP-запросов и ответами в простейший возможный способ, он красиво объединяет в себе API для взаимодействия с веб серверами, веб фреймворков и приложений написанных без использования фреймворков, а также программы, находящиеся между двух лагерей (так называемое middleware) в единый вызов метода.
 Rack — фреймворк для создания своего собственного фреймворка.
-
-
-### Explain the Rack application interface.  
-
 Rack предоставляет интерфейс взаимодействия различных веб серверов и вашего фреймворка / приложения. Делая взаимодействие вашего приложения с различными веб серверами, поддерживаемыми rack (Phusion Passenger, LiteSpeed, Mongrel, Thin, Ebb, Webrick — вот названия некоторых), очень простым.
 Rack позволяет вам сразу браться за дело благодаря абстрагированию от сервера. Вы свободно получаете запрос, ответ, куки, парметры и сессии без специальной адаптации приложения к какому-либо серверу.
+
+### Explain the Rack application interface
 
 Чтобы увидеть список всех rake-заданий для вашего приложения, можно выполнить rake --tasks.
 rake routes показывает все ваши указанные маршруты.
 
-### Write a simple Rack application.  
+### Write a simple Rack application
 
 Rack middleware - это больше, чем "a way to filter a request and response"-это реализация шаблона проектирования конвейера для веб-серверов, использующих Rack .
 
 Он очень четко отделяет различные этапы обработки запроса - разделение проблем является ключевой целью всех хорошо разработанных программных продуктов.
 
-'''ruby
+```ruby
 # rakefile.rb
 task :default do
 puts "Hello World!"
 end
-'''
+```
 
 How does Rack middleware works?  
 
@@ -182,9 +284,11 @@ How does Rack middleware works?
 A webserver соглашение об интерфейсе
 В gem
 
-## Ruby jems 
+## Ruby jems
 
 * What is RubyGems? How does it work?
+
+Это специальные модули которые позволяют расширить функциональность приложения добавляя новые методы и модули. Они позволяют также работать с базой
 
 * How can you build your own Ruby gem?
 
@@ -202,16 +306,24 @@ Successfully built RubyGem
   Version: 1.0.1
   File: meta_information-1.0.1.gem
 ```
+
 Aвторизовываемся в rubygems.org, и опубликовать его.
 
 * Explain the structure of a Ruby gem.
 
 * Can you give me some examples of your favorite gems besides Ruby on Rails?
 I know a lot of them: device, rspesc_rails, capystrano, will_paginate, sidekiq, factory_bot_rails, faker.
+
 ## English part
 
 1. What is the name of institute where you work now?
 
-2. What do you do, what is the title  of you dissertation?
+IPMMS Institute of Problem Mathematic Machines and System.
+
+2. What do you do, what is the title of you dissertation?
+
+Information technoogy for identification of sources of accidental emissions of air pollution. After Chornobel disaster, into air have been extractic radioactive element like jod and cezium and stroncium. This radioactive elemen can present in air or soil for many years. So our research is about founding the resource of air pollution, having the date from meteo station from the all Ukrainial or even Europiand open data.
 
 3. What Ruby programming language can be used for?
+
+For many purpose. The main idea is create web application using Ruby on Rails framework but it can be used for create and managing task inside Linux system, Mac OS have homebrew packet manager for work with almost all developer stack on Mac OS.  
