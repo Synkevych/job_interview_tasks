@@ -373,7 +373,8 @@ myapp.add_a_blurb :mood,  "Add Blurb here"
 
 myapp.show_timeline
 ```
-### zetcode example 
+### zetcode example
+
 ```ruby 
 bool = [true, false]
 
@@ -384,4 +385,38 @@ if male
 else 
     puts "We will use name Victoria"
 end
+```
+
+### other
+
+```ruby
+# sum the number
+
+arr = (5..10).to_a
+
+p arr.reduce(:+)
+
+p arr.inject{ |sum, n| sum + n }
+
+# Multiply some number
+
+p arr.reduce(:*)
+
+p arr.reduce(10, :*)
+
+# find the longest word
+
+longest = %w{cat dog sheep bear}.inject do | memo, word|
+    memo.length > word.length ? memo : word
+end
+
+p longest
+
+# uppercase first letter 
+
+upp_first_letter = %w{cat dog sheep bear}.inject([]) do | res, memo |
+    res.push memo.slice(0).upcase + memo[1..-1]
+end
+
+p upp_first_letter
 ```
