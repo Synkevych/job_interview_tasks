@@ -38,8 +38,61 @@ puts "#{small_dog}2 #{small_dog.bark}" # => Собака2 лает тихо
 
 * Pure Onject-Oriented Language
 * Open-Source
-* Metaprogramming
+* Metaprogramming - программы меняют себя во время выполнения (самомодифицирующийся код)
 * Cleand and Simple Syntax
+
+```ruby
+# Metaprogramming example
+# There were some methods for running dynamically generated code
+
+# Object#send
+Array.send(:define_method, :ducky) { puts 'quick! quick!' }
+p [].ducky # quick! quick!
+
+# Object#instance_eval, get the average of an array of integers
+[1,2,3,4].instance_eval { inject(:+) / size.to_f } # returns 2.5
+[1,2,3,4].instance_eval('size') # returns 4
+
+# Module#module_eval
+Fixnum.module_eval do
+  def to_word
+    if (0..3).include? self
+      ['none', 'one', 'a couple', 'a few'][self]
+    elsif self > 3
+      'many'
+    elsif self < 0
+      'negative'
+    end
+  end
+end
+1.to_word # returns 'one'
+2.to_word # returns 'a couple'
+
+# Kernel#method_missing, handle the absence of a method depending on the name instead of getting the default result
+class Fixnum
+  def method_missing(meth)
+    method_name = meth.id2name
+    if method_name =~ /^multiply_by_(\d+)$/
+      self * $1.to_i
+    else
+      raise NoMethodError, "undefined method `#{method_name}' for #{self}:#{self.class}"
+    end
+  end
+end
+
+16.multiply_by_64 # returns 1024
+16.multiply_by_x # NoMethodError
+
+
+# define_method 
+class Array
+  define_method(:multiply) do |arg|
+    collect{|i| i * arg}
+  end
+end
+
+[1,2,3,4].multiply(16) # returns [16, 32, 48, 64]
+```
 
 ### How would you freeze and object in Ruby?
 
@@ -54,16 +107,31 @@ end
 
 ### Ruby probides 4 types of variables, list them
 
-* global variables begin with $  
-* local variables begin with a lowervase letter or an underscore
-* class variables begin @@ and are shared by all instances of the class that it is defined in
-* instance vatiables begin with @ and are similar to class variables exept that they are local to a single instance of a class in which they are instantiated
+* global variables begin with **$** 
+* local variables begin with a **lowervase letter or an underscore**
+* class variables begin **@@** and are shared by all instances of the class that it is defined in
+* instance vatiables begin with **@** and are similar to class variables exept that they are local to a single instance of a class in which they are instantiated
 
 ### Name three levels of access control for Ruby methods
 
-* public
-* private
+* public - default value
+* private -  приватный метод нельзя вызвать на объекте явно (в т.ч. на self), может быть вызван только неявно на self экземплярами класса или его подклассов.
 * protected - only accessible within their defining class and its subclasses
+
+```ruby
+# protected
+class C
+  protected
+  def protected_m; 'hello'; end
+end
+
+class D < C
+  def m; C.new.protected_m; end
+end
+
+D.new.m # ==> 'hello'
+C.new.protected_m # ==> error
+```
 
 ### Explain the role of modules and mixines in Ruby
 
@@ -103,22 +171,44 @@ end
 
 ### 2. Разница в использования `git rebase` `git clone`
 
+rebese - позволяет взять все коммиты из одной ветки и в том же порядке применить их к другой ветке.
+
 ### 3. Что делает команда `git cherry-pick`
 
 Она берет изменения с одного коммита и применяет их в виде нового коммита к текущей ветки.
 
 ### 4. Как работает протокол передачи HTTP
 
+Протокол передачи даннных прикладного уровня HTTP работает повех TCP/IP используется для передачи произвольных данных. Каждое сообщение состоит из 3 частей: стартовая строка, заголовок и сообщение.
+
 ### Лямбды, Блоки и Proc используются в Руби для работы с замыканием
 
-* proc - объект, который можно сохранить в переменную, от не имеет ограничения по количеству аргументов, у него можно хранить функцию, **return** останавливает выполнение метода 
+* proc - объект, который можно сохранить в переменную, от не имеет ограничения по количеству аргументов, у него можно хранить функцию, **return** останавливает выполнение метода
+
  ```ruby 
- hello = Proc.new { puts “Я мистер прок!“ }
+square = Proc.new {|x| x**2 }
+proc2 = proc {|x| x**2 } # shorthand of new - Kernel#proc
+
+square.call(3)  #=> 9
+square.(3)      #=> 9
+square[3]       #=> 9
+
+p = proc {|x, y| "x=#{x}, y=#{y}" }
+p.call(1, 2)      #=> "x=1, y=2"
+p.call([1, 2])    #=> "x=1, y=2", array deconstructed
+p.call(1, 2, 8)   #=> "x=1, y=2", extra argument discarded
+p.call(1)         #=> "x=1, y=", nil substituted instead of error
  ```
-* labmda -является элементом класса Proc, проверяет количество аргументов которые в нее передаются, **return** завершает выполнение кода внутри нее код метода который ее вызвал продолжает работать
+* labmda - является элементом класса Proc, проверяет количество аргументов которые в нее передаются, **return** завершает выполнение кода внутри нее код метода который ее вызвал продолжает работать
 ```ruby
-lam = lambda { |x| puts x } # лямбда с одним аргументов
-lam.call('Привет!') # => Привет!
+lambda1 = lambda { |x| x**2 } 
+lambda2 = ->(x) { x**2 } #shorthand
+
+l = lambda {|x, y| "x=#{x}, y=#{y}" }
+l.call(1, 2)      #=> "x=1, y=2"
+l.call([1, 2])    # ArgumentError: wrong number of arguments (given 1, expected 2)
+l.call(1, 2, 8)   # ArgumentError: wrong number of arguments (given 3, expected 2)
+l.call(1)         # ArgumentError: wrong number of arguments (given 1, expected 2)
 ```
 
 ### Что такое сокет?
@@ -238,7 +328,7 @@ What are the three levels of method access control for classes and what do they 
 
 ### What does ‘self’ mean
 
-**self** внутри метода екземпляра относится к самому объекту. Оно не используется для вызова методов того же экземпляра класса.
+**self** внутри метода екземпляра относится к самому объекту. Он не используется для вызова методов того же экземпляра класса.
 
 Explain how (almost) everything is an object in Ruby.
 Explain what singleton methods are. What is Eigenclass in Ruby?
@@ -267,7 +357,7 @@ rake routes показывает все ваши указанные маршру
 
 ### Write a simple Rack application
 
-Rack middleware - это больше, чем "a way to filter a request and response"-это реализация шаблона проектирования конвейера для веб-серверов, использующих Rack .
+Rack middleware - это больше, чем "a way to filter a request and response" - это реализация шаблона проектирования конвейера для веб-серверов, использующих Rack.
 
 Он очень четко отделяет различные этапы обработки запроса - разделение проблем является ключевой целью всех хорошо разработанных программных продуктов.
 
@@ -281,8 +371,8 @@ end
 How does Rack middleware works?  
 
 Прежде всего, Rack-это ровно две вещи:
-A webserver соглашение об интерфейсе
-В gem
+* A webserver соглашение об интерфейсе
+* В gem
 
 ## Ruby jems
 
@@ -313,6 +403,21 @@ Aвторизовываемся в rubygems.org, и опубликовать е�
 
 * Can you give me some examples of your favorite gems besides Ruby on Rails?
 I know a lot of them: device, rspesc_rails, capystrano, will_paginate, sidekiq, factory_bot_rails, faker.
+
+## JavaScript
+
+Как работает *prototype* ? 
+
+```js
+function User() {}
+User.prototype = { admin: false }
+
+let user = new User(); // user.admin = false 
+
+User.prototypr = { admin: true } // Мы изменили прототип юзера но не созданого от него юзера
+
+user.admin // user.admin = false  
+```
 
 ## English part
 

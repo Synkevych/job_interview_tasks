@@ -10,14 +10,18 @@
 
 ### Data type
 
-- Booleans
-- Symbols
-- Numbers
-- Strings
-- Arrays
-- Hashes
+- Booleans,Symbols, Numbers,Strings, Arrays, Hashes
 
-### Easy
+## Easy
+
+### Automatic conversion
+
+**false** = false, nil
+**true** = everything_else
+
+### Scope 
+
+Different types of variables have different scoping rules. There is two types: **global** scope and **local** scope
 
 ### How do you define a global variable, an instance variable, a class variable, and a local variable?
 
@@ -121,26 +125,78 @@ True, ruby Ruby is a pure object-oriented language and everything appears to Rub
 
 **protected** - можно вызвать явно, но только из контекста (метода, например) объекта, который является экземпляром того же класса или его подкласса.
 
-### Medium
+## Medium
 
 ### Does Ruby pass by value, reference, or other?
 
+Строки, числа и символы передаются по значению, массивы и хеши передаются по ссылке.
+
 ### What's the difference between and and && in Ruby?
+
+Operator && has a higher precedence than and. But this is generally not an issue unless used with operators which are in between these two, like the ternary and assignment operators.
+
+```ruby
+foo = true and false 
+# false, but foo = true
+
+bar = true && false 
+# false, but bar = false
+```
 
 ### How do you define a constant in Ruby (hint: all uppercase characters is wrong)?
 
 На самом деле константы не контсанты, если поменят значение константы это выдаст предупреждение но не остановит программу. 
 Для того чтобы запретить изменение объекта можно использовать метод freeze. Для проверки Object#frozen?.
 
-How do you check if a class inherits another class?
+### How do you check if a class inherits another class?
+
+**<= operator**
+
+```ruby
+class A; end
+class B < A; end
+B <= A # true 
+```
+
 Name at least two days to define a class.
-What's the difference between a lambda and a proc (hint: think return)?
-What does a Struct do?
+
+### What's the difference between a lambda and a proc (hint: think return)?
+
+**return** полностью останавливает выполнение метода который вызвал **proc**, в **lambda** **return**авершает выполнение кода внутри нее, но код метода который ее вызвал продолжает работать
+
+### What does a Struct do?
+
+Удобный способ связать несколько атрибутов вместе с помощью методов доступа без необходимости писать явный класс. Класс **Struct** генерирует новые подклассы которые содержат набор членов и их значение. Для каждого члена создается метод чтения и записи аналогичный *Module#attr_accessor*
+
+```ruby
+Customer = Struct.new(:name, :address) do
+  def greeting
+    "Hello #{name}!"
+  end
+end
+
+dave = Customer.new("Dave", "123 Main")
+dave.name     #=> "Dave"
+dave.greeting #=> "Hello Dave!"
+```
+
 What's the difference between super and super()?
-What's the difference between a module and a class? When would you use one or the other?
+
+### What's the difference between a module and a class? When would you use one or the other?
+
 What does ampersand (&) do before a symbol (e.g. users.map(&:name))?
 Name two ways you can write a method that takes a code block.
-What is the Set class for in Ruby?
+
+### What is the Set class for in Ruby?
+
+Set реализует коллекцию неупорядочнных значений без дубликатов. Это гибрид интуитивно понятных средств взаимодействия Array и быстрого поиска Hash.
+
+```ruby
+s1 = Set[1, 2]                        #=> #<Set: {1, 2}>
+s2 = [1, 2].to_set                    #=> #<Set: {1, 2}>
+s1 == s2                              #=> true
+```
+
 How do you define the default value for a Hash?
 How do you define a way to order and sort instances of a particular class?
 How would you call a private method outside of a class if needed?
@@ -188,7 +244,7 @@ end
 
 ### Как будет называется таблица после создания модели Answer в RoR
 
-> create_table "answers"
+> create_table "answers", во множемтвенном числе
 
 ### Как подключить js код внутри view
 
