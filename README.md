@@ -89,8 +89,12 @@ parseInt(1111,2) // 15
 +(45).toString(2) //101101
 ```
 
-### В предыдущем месяце зарплата была 70$ в текущем 100$, на сколько % увеличилась зарплата
+### Result Code and Phrase
 
-(100-70) / 70 = 0.429
-
-Увеличилась на 43%
+| Code | Type | Phrase |
+| --- | --- | --- |
+| 1xxx | Inforamartional | Not Done Yet |
+| 2xxx | Success | You win |
+| 3xxx | Redirection | You lose but try again |
+| 4xxx | Client Error | You lose, your fault |
+| 5xxx | Server Error | You lose, my bad |
