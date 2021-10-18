@@ -62,7 +62,6 @@ function changeA(o) {
 
 changeA(a);
 console.log(a);
-
 ```
 
 ### Type changing
@@ -81,8 +80,8 @@ console.log(1+"2"+3);
 
 console.log({a:1} && {b:2}); // { b:2 }
 
+//always return the first element
 console.log({a:1} || {b:2}) // not true !!! - {a: 1}
-//alway first element
 
 // ++"a" = NaN + "a"
 console.log(("b" + "a" + + "a"+"a").toLowerCase()); // banana
@@ -114,7 +113,7 @@ volume(70)(940,340);
 
 // вариант функции расчета прямоугольных параллепипедов, одна из сторон которых зафиксирована
 function volume(l,h,w) {
-    return l * h * w
+    return l * h * w;
 }
 const hV = partial(volume,100);
 
@@ -189,9 +188,16 @@ foo.x = foo = {n: 2};
 // bar - {n: 1, x: {n: 2} }
 // foo.x - undefined
 // при выводе foo.x наше foo ссылается на его новое значение, в котором отсутствует x, то соответственно foo.x будет не определенно — undefined.
+
+// Потому что:
+
+var a = 1,
+    b = a;  // присваивается значение
+var a = {},
+    b = a;  // присваивается ссылка на объект
 ```
 
-Приоритет операций играет здесь ключевую роль, первая операция это присвоенние *foo.x* ссылки на *foo*, которая изменяется сразу на следующей операции
+Приоритет операций играет здесь ключевую роль, первая операция это присвоенние *foo.x* ссылки на *foo*, которая изменяется сразу на следующей операции. Также важно понимание того как хранится объект и что происходит при его изменении, в даном случае foo ссылается на одну новую ечейку памяти а bar на старую где все хранится.
 
 ### Explain the result of console
 
@@ -203,10 +209,10 @@ var a={},
 a[b]=123; // key [b] will be converted to [object Object]
 a[c]=456; // key [c] the same thing 
 
-console.log(a[b]); //456
+console.log(a[с]); //456
 ```
 
-### if there in array any argument of 3?
+### Is there in an array any argument with value equal to 3?
 
 ```js
 // v1
@@ -237,10 +243,9 @@ div{
 }
 ```
 
-### setTimeout in JS, how work
+### setTimeout in JS, how it is work
 
 ```js
-
 console.log(1);
 setTimeout( function(){  console.log("2")},100 ); // last
 setTimeout( function(){console.log("3")},1 ); // in chrome api 1ms = 0
