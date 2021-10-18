@@ -64,14 +64,7 @@ let i = 0; // получим ошибку: SyntaxError 's' has already been decl
 let double = 7.32;
 
 // best
-double.toString().split(".") // ["4", "234"]
-
-// good
-~~ double;      // 7 двойное НЕ (~)
-double ^ 0;     // 7 Исключающее ИЛИ (^) с нулём
-double.toFixed();       // "7"
-double.toPrecision(1);  // "7"
-Math.round(double);
+(double + "").split(".");
 ```
 
 ### 4. Как с помощью чистой функции добавить к state новый массив
@@ -128,7 +121,7 @@ str.length — это числовое свойство не функция/ме
 str.repeat(n)
 
 - Строки, булевые значения и числа могут быть представлены как примитивные типы или в качестве объектов.
-- Определенные примитивные типы (строки, булевые значения, числа) ведут себя как объекты благодаря наличию в JavaScript автоупаковки.
+- Определенные примитивные типы (строки, булевые значения, числа, символы) ведут себя как объекты благодаря наличию в JavaScript автоупаковки.
 
 ### 7. Как функция изменит переменные || Что вернет console.log(obj, num)
 
@@ -346,7 +339,7 @@ switch (a) {
 
 ```javascript
 let user = {
-    fistName: "Roman",
+    firstName: "Roman",
     lastName: "Synkevych"
     }
 
@@ -374,7 +367,7 @@ Student.prototype.sayHello = function(){
 
 function Student(){
     Person.apply(this, arguments);
-    }
+}
 
 // ES2015
 class Person {
